@@ -1,0 +1,118 @@
+---
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-[#101C2B]/95 backdrop-blur-[8px] border-b border-slate-800/80 text-white">
+  <!-- Main Navigation Bar -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+      
+      <!-- Logo Perusahaan (Gensetora Circle Badge Style) -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700/80 flex items-center justify-center text-white font-heading font-black text-xs tracking-wider shadow-xs group-hover:border-[#F5B82E] transition-colors">
+          <span class="text-[#F5B82E] font-black">GT</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-black text-base sm:text-lg tracking-wider uppercase text-white group-hover:text-[#F5B82E] transition-colors block leading-tight">
+            GENSETORA
+          </span>
+          <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold leading-none hidden sm:block">
+            POWER SOLUTIONS
+          </span>
+        </div>
+      </a>
+
+      <!-- Clean Text Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-semibold uppercase tracking-wider text-slate-200">
+        <a href="#katalog" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+          Katalog
+        </a>
+        <a href="#sewa" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+          Sewa
+        </a>
+        <a href="#layanan" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+          Layanan
+        </a>
+        <a href="#kalkulator" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+          Kalkulator
+        </a>
+        <a href="/artikel/" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+          Artikel
+        </a>
+        <a href="#kontak" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+          Kontak
+        </a>
+      </nav>
+
+      <!-- Single Action Button (Industrial Border Style) -->
+      <div class="flex items-center gap-3">
+        <a
+          href="#kontak"
+          class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg border border-[#F5B82E] text-[#F5B82E] hover:bg-[#F5B82E] hover:text-[#101C2B] text-xs font-bold tracking-wide transition-all shadow-xs"
+        >
+          Minta Penawaran
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button
+          type="button"
+          id="mobile-nav-toggle"
+          class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none"
+          aria-label="Buka Menu"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#0B131E] border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+    <a href="#katalog" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+      Katalog Produk
+    </a>
+    <a href="#sewa" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+      Rental & Sewa
+    </a>
+    <a href="#layanan" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+      Layanan & Servis
+    </a>
+    <a href="#kalkulator" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+      Kalkulator Daya
+    </a>
+    <a href="/artikel/" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+      Artikel & Panduan
+    </a>
+    <a href="#kontak" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+      Hubungi Kontak
+    </a>
+    <div class="pt-2">
+      <a
+        href="#kontak"
+        class="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-[#F5B82E] text-[#101C2B] font-bold text-xs tracking-wider uppercase"
+      >
+        Minta Penawaran Resmi
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const links = document.querySelectorAll('.mobile-nav-link');
+
+  if (toggleBtn && menu) {
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    links.forEach((l) => {
+      l.addEventListener('click', () => {
+        menu.classList.add('hidden');
+      });
+    });
+  }
+</script>

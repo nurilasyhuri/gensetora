@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('artikel');
+
+function parseArticleDate(str: string): number {
+  if (!str) return 0;
+  const iso = Date.parse(str);
+  if (!isNaN(iso)) return iso;
+  const idMonths: Record<string, number> = {
+    januari: 0, februari: 1, maret: 2, april: 3, mei: 4, juni: 5,
+    juli: 6, agustus: 7, september: 8, oktober: 9, november: 10, desember: 11
+  };
+  const parts = str.trim().split(/\s+/);
+  if (parts.length === 3) {
+    const day = parseInt(parts[0], 10);
+    const month = idMonths[parts[1].toLowerCase()];
+    const year = parseInt(parts[2], 10);
+    if (!isNaN(day) && month !== undefined && !isNaN(year)) {
+      return new Date(year, month, day).getTime();
+    }
+  }
+  return 0;
+}
+
+// Sort by publish date descending
+const articles = allArticles.sort(
+  (a, b) => parseArticleDate(b.data.publishDate) - parseArticleDate(a.data.publishDate)
+);
+---
+
+<Layout
+  title="Artikel & Panduan Teknik Genset — GENSETORA"
+  description="Kumpulan panduan teknis pembangkit listrik: cara hitung daya kVA vs kW, perbandingan silent vs open type, perawatan berkala, dan panel ATS otomatis."
+>
+  <Header />
+
+  <main class="min-h-screen bg-[#F3F6FA] py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Breadcrumb & Header -->
+      <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6 font-medium">
+        <a href="/" class="hover:text-[#F5B82E] transition-colors">Beranda</a>
+        <span>/</span>
+        <span class="text-[#101C2B] font-bold">Artikel &amp; Panduan</span>
+      </nav>
+
+      <div class="max-w-3xl mb-12">
+        <div class="text-xs font-bold uppercase tracking-wider text-[#101C2B] bg-[#F5B82E] inline-block px-3 py-1 rounded-md mb-3">
+          Knowledge Center
+        </div>
+        <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-[#101C2B] tracking-tight leading-tight mb-4">
+          Panduan Praktis &amp; Standar Teknik Genset
+        </h1>
+        <p class="text-base text-slate-600 leading-relaxed">
+          Rujukan edukasi terstandarisasi mengenai pemilihan kapasitas daya kVA, mitigasi lonjakan starting motor, SOP perawatan mesin diesel, dan efisiensi konsumsi bahan bakar solar.
+        </p>
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {articles.map((item) => (
+          <article class="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:shadow-lg transition-all flex flex-col justify-between group">
+            <div>
+              <!-- Hero Image Container -->
+              <a href={`/artikel/${item.slug}/`} class="block aspect-video overflow-hidden bg-slate-900 relative">
+                <img
+                  src={item.data.heroImage}
+                  alt={`Ilustrasi ${item.data.title}`}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="px-2.5 py-1 rounded-md bg-[#101C2B]/90 backdrop-blur-xs text-[#F5B82E] text-xs font-bold uppercase tracking-wider">
+                    {item.data.category}
+                  </span>
+                </div>
+              </a>
+
+              <!-- Card Content -->
+              <div class="p-6 space-y-3">
+                <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                  <time datetime={item.data.publishDate}>{item.data.publishDate}</time>
+                  <span>•</span>
+                  <span>{item.data.author}</span>
+                </div>
+
+                <h2 class="font-heading text-lg font-bold text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug line-clamp-2">
+                  <a href={`/artikel/${item.slug}/`}>
+                    {item.data.title}
+                  </a>
+                </h2>
+
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
+                  {item.data.description}
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-1.5 pt-2">
+                  {item.data.tags.slice(0, 3).map((tag) => (
+                    <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Read Link -->
+            <div class="p-6 pt-0 border-t border-slate-100 mt-2">
+              <a
+                href={`/artikel/${item.slug}/`}
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-[#101C2B] group-hover:text-[#E5A71D] uppercase tracking-wider transition-colors"
+              >
+                <span>Pelajari Selengkapnya</span>
+                <span>→</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Quick Help CTA Banner -->
+      <div class="p-8 sm:p-12 rounded-3xl bg-[#101C2B] text-white border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+        <div class="space-y-2 text-center md:text-left">
+          <div class="text-xs text-[#F5B82E] font-bold uppercase tracking-wider">Konsultasi Kebutuhan Daya</div>
+          <h3 class="font-heading text-xl sm:text-2xl font-bold tracking-tight">
+            Butuh Bantuan Menghitung Kapasitas Genset untuk Fasilitas Anda?
+          </h3>
+          <p class="text-sm text-slate-300 max-w-xl">
+            Konsultasikan daftar daya peralatan listrik (Watt/kVA) proyek Anda langsung bersama tim estimator kami.
+          </p>
+        </div>
+        <a
+          href="https://wa.me/6285183005070?text=Halo%20Gensetora,%20saya%20ingin%20konsultasi%20kapasitas%20genset%20setelah%20membaca%20artikel%20website"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="shrink-0 px-6 py-3.5 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm tracking-wide uppercase shadow-lg transition-all flex items-center gap-2"
+        >
+          <span>Konsultasi WA: 0851-8300-5070</span>
+          <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.54 1.767.828 2.796.828h.005c3.181 0 5.767-2.587 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.43-4.743-1.189l-5.257 1.378 1.4-5.118c-.85-1.488-1.341-3.21-1.341-5.043 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

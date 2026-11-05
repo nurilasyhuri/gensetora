@@ -1,0 +1,64 @@
+---
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "GENSETORA — Complete Generator & Power Solutions Indonesia",
+  description = "Pusat solusi genset terpadu kapasitas 1 kVA – 2.000 kVA di Indonesia: Jual unit baru bergaransi, sewa harian-bulanan, service overhaul, dan maintenance berkala resmi."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="PT. Gensetora Daya Nusantara" />
+    <meta name="publisher" content="PT. Gensetora Daya Nusantara" />
+
+    <!-- Google Fonts: Manrope & Inter (Industrial Engineering Standard) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style is:global>
+      :root {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      }
+      .font-heading {
+        font-family: 'Manrope', 'Poppins', system-ui, sans-serif;
+      }
+      /* Mechline Marquee Animation */
+      @keyframes ticker {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-50%, 0, 0); }
+      }
+      .animate-ticker {
+        animation: ticker 28s linear infinite;
+      }
+      .animate-ticker:hover {
+        animation-play-state: paused;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .animate-ticker {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white text-slate-900 antialiased selection:bg-[#F5B82E] selection:text-[#101C2B] overflow-x-hidden font-sans">
+    <slot />
+    <FloatingWhatsApp phone="6285183005070" message="Halo Gensetora, saya ingin konsultasi kebutuhan genset untuk proyek/bisnis saya." />
+  </body>
+</html>

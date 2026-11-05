@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gensetora.com/sitemap-index.xml

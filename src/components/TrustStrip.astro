@@ -1,0 +1,32 @@
+---
+const brands = [
+  "CUMMINS POWER",
+  "PERKINS ENGINES UK",
+  "YANMAR DIESEL JAPAN",
+  "STAMFORD ALTERNATOR",
+  "DOOSAN INFRACORE",
+  "MITSUBISHI HEAVY",
+  "DEEP SEA ELECTRONICS (DSE)",
+  "ISUZU DIESEL",
+  "LEROY SOMER",
+  "SCHNEIDER ELECTRIC",
+  "VOLVO PENTA",
+  "DEUTZ GERMANY"
+];
+---
+
+<div class="relative w-full bg-[#0B131E] border-y border-slate-800 py-3.5 sm:py-4 overflow-hidden select-none" aria-label="Brand Mitra & Komponen Resmi">
+  <!-- Gradient Edge Masks -->
+  <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#0B131E] to-transparent z-10 pointer-events-none"></div>
+  <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#0B131E] to-transparent z-10 pointer-events-none"></div>
+
+  <!-- Marquee Container -->
+  <div class="flex items-center gap-10 whitespace-nowrap animate-ticker">
+    {brands.concat(brands).map((brand) => (
+      <div class="inline-flex items-center gap-4 text-xs sm:text-sm font-black tracking-widest text-slate-400/90 uppercase">
+        <span class="text-[#F5B82E]">⚡</span>
+        <span class="hover:text-white transition-colors">{brand}</span>
+      </div>
+    ))}
+  </div>
+</div>

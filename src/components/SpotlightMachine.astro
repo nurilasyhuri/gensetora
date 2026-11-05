@@ -1,0 +1,162 @@
+---
+const categories = [
+  {
+    name: "Silent Canopy Generator",
+    kva: "10 kVA – 500 kVA",
+    desc: "Dilengkapi box canopy baja tebal dengan busa peredam akustik tahan api (noise level < 68 dB). Pilihan nomor satu untuk hotel, rumah sakit, kantor, dan pemukiman.",
+    engine: "Cummins, Perkins, Yanmar, Isuzu",
+    alternator: "Stamford / Leroy Somer",
+    useCase: "Hotel, Rumah Sakit, Kantor, Mall, Residensial",
+    noise: "< 68 dB (Acoustic Foam 50mm)",
+    img: "/images/machine-silent.webp",
+    featured: true
+  },
+  {
+    name: "Heavy Industrial Diesel Rig",
+    kva: "500 kVA – 2.000+ kVA",
+    desc: "Unit pembangkit daya kontinyu tugas berat (heavy-duty continuous) untuk kebutuhan pabrik manufaktur, smelter, fasilitas data center, dan operasional pelabuhan.",
+    engine: "Cummins Heavy, Mitsubishi, Perkins UK",
+    alternator: "Stamford Brushless IP23",
+    useCase: "Pabrik, Tambang, Smelter, Data Center",
+    noise: "Ruang Genset / Heavy Canopy",
+    img: "/images/machine-diesel.webp",
+    featured: true
+  },
+  {
+    name: "Genset Portable Compact",
+    kva: "1 kVA – 10 kVA",
+    desc: "Genset bensin dan solar compact berkerangka pipa baja kuat dengan roda dorong. Konsumsi BBM sangat hemat, mudah dipindahkan, dan perawatan mandiri.",
+    engine: "OHV 4-Tak / Small Diesel",
+    alternator: "Copper Wire Alternator",
+    useCase: "UMKM, Ruko Kecil, Rumah Tinggal, Food Truck",
+    noise: "65 – 72 dB",
+    img: "/images/machine-portable.webp",
+    featured: false
+  },
+  {
+    name: "Open Type Power Plant",
+    kva: "20 kVA – 2.000 kVA",
+    desc: "Model rangka terbuka tanpa canopy khusus untuk instalasi di dalam ruang mesin tertutup (power house) dengan sistem ducting radiator dan knalpot attenuator.",
+    engine: "Cummins, Yanmar, Doosan, Lovol",
+    alternator: "Stamford Class H Insulation",
+    useCase: "Ruang Power House Gedung, Basement Pabrik",
+    noise: "Membutuhkan Ruang Khusus",
+    img: "/images/machine-opentype.webp",
+    featured: false
+  },
+  {
+    name: "Mobile Trailer Genset",
+    kva: "25 kVA – 250 kVA",
+    desc: "Genset silent yang terpasang di atas sasis roda 4 gandar dengan batang penarik (tow bar). Solusi fleksibel untuk event musik outdoor, shooting, dan konstruksi jalan.",
+    engine: "Perkins, Cummins, Isuzu",
+    alternator: "Stamford Automatic AVR",
+    useCase: "Konser Outdoor, Proyek Tol, Bencana Darurat",
+    noise: "< 70 dB Mobile Soundproof",
+    img: "/images/machine-trailer.webp",
+    featured: false
+  }
+];
+---
+
+<section id="katalog" class="py-20 sm:py-24 bg-[#F3F6FA] border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Heading -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-6">
+      <div class="max-w-2xl">
+        <div class="text-xs font-bold uppercase tracking-wider text-[#F5B82E] bg-[#101C2B] inline-block px-3 py-1 rounded-md mb-3">
+          Katalog Produk Genset
+        </div>
+        <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-[#101C2B] tracking-tight">
+          Pilihan Kategori Genset Berstandar Industri
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
+          Tersedia beragam tipe genset baru dan siap rental dengan spesifikasi mesin asli bergaransi resmi, komponen bersertifikasi, dan pengujian beban (load test) 100%.
+        </p>
+      </div>
+
+      <a
+        href="#kontak"
+        class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#101C2B] hover:bg-slate-800 text-white text-xs font-bold tracking-wide uppercase shadow-sm transition-colors shrink-0"
+      >
+        <span>Download Brosur &amp; Spesifikasi</span>
+        <svg class="w-4 h-4 text-[#F5B82E]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- 5-Card Product Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {categories.map((cat) => (
+        <div class="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:shadow-lg hover:border-[#F5B82E]/60 transition-all flex flex-col justify-between group">
+          
+          <div>
+            <!-- Image Area -->
+            <div class="aspect-[16/10] overflow-hidden bg-slate-900 relative">
+              <img
+                src={cat.img}
+                alt={cat.name}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+              <div class="absolute top-3 left-3">
+                <span class="px-3 py-1 rounded-full bg-[#101C2B]/90 backdrop-blur-xs text-[#F5B82E] text-xs font-bold uppercase tracking-wider">
+                  {cat.kva}
+                </span>
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-6 space-y-4">
+              <h3 class="font-heading font-extrabold text-lg sm:text-xl text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug">
+                {cat.name}
+              </h3>
+              
+              <p class="text-xs text-slate-600 leading-relaxed">
+                {cat.desc}
+              </p>
+
+              <!-- Technical Specs Matrix -->
+              <div class="pt-3 border-t border-slate-100 space-y-2 text-xs">
+                <div class="flex items-center justify-between text-slate-500">
+                  <span>Engine:</span>
+                  <strong class="text-slate-800 font-semibold">{cat.engine}</strong>
+                </div>
+                <div class="flex items-center justify-between text-slate-500">
+                  <span>Alternator:</span>
+                  <strong class="text-slate-800 font-semibold">{cat.alternator}</strong>
+                </div>
+                <div class="flex items-center justify-between text-slate-500">
+                  <span>Tingkat Suara:</span>
+                  <strong class="text-slate-800 font-semibold">{cat.noise}</strong>
+                </div>
+                <div class="flex items-center justify-between text-slate-500">
+                  <span>Peruntukan:</span>
+                  <strong class="text-emerald-700 font-semibold text-right max-w-[180px] truncate">{cat.useCase}</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Card -->
+          <div class="p-6 pt-0">
+            <a
+              href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik menanyakan ketersediaan dan penawaran harga untuk ${cat.name} (${cat.kva}). Mohon informasi katalognya.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
+            >
+              <span>Minta Penawaran Unit</span>
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
