@@ -1,0 +1,414 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { vgenProducts, type ProductSpec } from '../../data/products';
+
+export async function getStaticPaths() {
+  return vgenProducts.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+interface Props {
+  product: ProductSpec;
+}
+
+const { product } = Astro.props;
+
+// Other products in the series
+const otherProducts = vgenProducts.filter((p) => p.slug !== product.slug);
+
+// Schema.org Structured Data
+const jsonLd = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": product.name,
+  "image": [`https://gensetora.com${product.image}`],
+  "description": product.shortDesc,
+  "sku": product.model,
+  "mpn": product.model,
+  "brand": {
+    "@type": "Brand",
+    "name": product.brand
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "Rajawali Diesel Indonesia (RDI)"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": `https://gensetora.com/produk/${product.slug}/`,
+    "priceCurrency": "IDR",
+    "price": "0",
+    "priceValidUntil": "2027-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": "PT. Gensetora Daya Nusantara"
+    }
+  }
+};
+---
+
+<Layout
+  title={`${product.name} — Spesifikasi & Harga Gensetora`}
+  description={`Spesifikasi teknis lengkap ${product.name}: Max Output ${product.maxOutput}, Rated ${product.ratedOutput}, Voltase ${product.voltage}, tangki 25L, dual starter. Bergaransi resmi RDI.`}
+>
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <Header />
+
+  <main class="pt-20 sm:pt-24 bg-[#F3F6FA]">
+    
+    <!-- Breadcrumb Bar -->
+    <div class="bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <nav class="flex items-center gap-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+          <a href="/" class="hover:text-[#F5B82E] transition-colors">Beranda</a>
+          <span>/</span>
+          <a href="/produk/" class="hover:text-[#F5B82E] transition-colors">Katalog Produk</a>
+          <span>/</span>
+          <span class="text-[#101C2B] font-bold">{product.model}</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Product Main Detail Section -->
+    <section class="py-12 sm:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Column 1: Product Visual & Media Card (5 Cols) -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm relative overflow-hidden">
+              {product.badge && (
+                <div class="absolute top-4 left-4 z-10">
+                  <span class="px-3.5 py-1.5 rounded-full bg-[#101C2B] text-[#F5B82E] text-xs font-bold uppercase tracking-wider shadow-xs">
+                    {product.badge}
+                  </span>
+                </div>
+              )}
+              <div class="absolute top-4 right-4 z-10">
+                <span class="px-3 py-1 rounded-md bg-[#F3F6FA] border border-slate-200 text-slate-700 text-xs font-bold">
+                  {product.phase}
+                </span>
+              </div>
+
+              <!-- Main Image Showcase -->
+              <div class="aspect-square w-full max-w-[380px] mx-auto flex items-center justify-center py-6">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  class="w-full h-full object-contain filter drop-shadow-xl hover:scale-105 transition-transform duration-300"
+                  width="600"
+                  height="600"
+                />
+              </div>
+
+              <!-- Verified Badges Strip -->
+              <div class="grid grid-cols-3 gap-2 pt-6 border-t border-slate-100 text-center text-[11px] text-slate-600 font-medium">
+                <div class="p-2 rounded bg-slate-50 border border-slate-100">
+                  <div class="text-[#F5B82E] font-black text-sm">100%</div>
+                  <div>Tembaga Murni</div>
+                </div>
+                <div class="p-2 rounded bg-slate-50 border border-slate-100">
+                  <div class="text-[#101C2B] font-black text-sm">25 L</div>
+                  <div>Tangki Ekstra</div>
+                </div>
+                <div class="p-2 rounded bg-slate-50 border border-slate-100">
+                  <div class="text-emerald-700 font-black text-sm">Dual</div>
+                  <div>Electric Starter</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Brochure Download Card -->
+            <div class="bg-[#101C2B] text-white rounded-2xl p-6 border border-slate-800 space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-[#F5B82E]">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Brosur Asli Resmi</h4>
+                  <p class="text-xs text-slate-400">Distribusi Rajawali Diesel Indonesia</p>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Unduh lembar spesifikasi orisinil mencakup dimensi sasis, layout panel kontrol, dan toleransi beban output.
+              </p>
+
+              <a
+                href={product.brochurePdf}
+                target="_blank"
+                download={`Brosur-${product.model}-Genset-Portable-VGEN.pdf`}
+                class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#F5B82E] hover:bg-[#E5A71D] text-[#101C2B] font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
+              >
+                <span>Unduh Lembar PDF (3.7 MB)</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Column 2: Product Specifications & Action (7 Cols) -->
+          <div class="lg:col-span-7 space-y-8">
+            
+            <!-- Header Title Info -->
+            <div class="space-y-3 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+                <span class="text-[#F5B82E] bg-[#101C2B] px-2.5 py-0.5 rounded-sm">{product.brand}</span>
+                <span>•</span>
+                <span>{product.type}</span>
+              </div>
+
+              <h1 class="font-heading text-2xl sm:text-4xl font-extrabold text-[#101C2B] tracking-tight leading-tight">
+                {product.name}
+              </h1>
+
+              <p class="text-sm sm:text-base text-slate-600 font-medium">
+                {product.tagline}
+              </p>
+
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pt-2">
+                {product.fullDesc}
+              </p>
+
+              <!-- Quick Highlights Matrix -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-100">
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <div class="text-[10px] text-slate-500 uppercase font-semibold">Max Output</div>
+                  <div class="font-heading font-black text-lg text-[#101C2B]">{product.maxOutput}</div>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <div class="text-[10px] text-slate-500 uppercase font-semibold">Rated Output</div>
+                  <div class="font-heading font-bold text-base text-slate-800">{product.ratedOutput}</div>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <div class="text-[10px] text-slate-500 uppercase font-semibold">Tegangan Listrik</div>
+                  <div class="font-heading font-bold text-base text-slate-800">{product.voltage}</div>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <div class="text-[10px] text-slate-500 uppercase font-semibold">Tangki BBM</div>
+                  <div class="font-heading font-bold text-base text-slate-800">{product.fuelTank}</div>
+                </div>
+              </div>
+
+              <!-- Direct WhatsApp Order Action -->
+              <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <a
+                  href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik memesan unit ${product.name} (${product.model}). Mohon info penawaran harga resmi, stok, dan estimasi pengiriman.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-lg bg-[#F5B82E] hover:bg-[#E5A71D] text-[#101C2B] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md active:scale-95"
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.652c1.746.951 3.71 1.452 5.711 1.453h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z" />
+                  </svg>
+                  <span>Minta Penawaran Harga WhatsApp</span>
+                </a>
+
+                <a
+                  href="#spesifikasi"
+                  class="inline-flex items-center justify-center py-4 px-6 rounded-lg border border-slate-300 hover:border-[#101C2B] text-slate-700 hover:text-[#101C2B] font-bold text-xs uppercase tracking-wider transition-colors"
+                >
+                  Tabel Spesifikasi
+                </a>
+              </div>
+            </div>
+
+            <!-- Full Technical Specifications Table -->
+            <div id="spesifikasi" class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 space-y-6">
+              <div>
+                <h3 class="font-heading font-extrabold text-xl text-[#101C2B]">
+                  Lembar Spesifikasi Teknis Lengkap
+                </h3>
+                <p class="text-xs text-slate-500 mt-1">
+                  Parameter operasional terverifikasi berdasarkan standar uji pabrikan Rajawali Diesel Indonesia.
+                </p>
+              </div>
+
+              <div class="overflow-hidden border border-slate-200 rounded-xl">
+                <table class="w-full text-xs text-left">
+                  <tbody class="divide-y divide-slate-100">
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600 w-1/3">Merk / Brand</td>
+                      <td class="py-3 px-4 font-bold text-slate-900">{product.brand} Generator Set</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-4 font-semibold text-slate-600">Model Tipe</td>
+                      <td class="py-3 px-4 font-bold text-slate-900">{product.model}</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600">Tipe Konstruksi</td>
+                      <td class="py-3 px-4 text-slate-900">{product.type}</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-4 font-semibold text-slate-600">Jenis Bahan Bakar</td>
+                      <td class="py-3 px-4 text-slate-900">{product.fuel}</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600">Maksimum AC Output</td>
+                      <td class="py-3 px-4 font-black text-[#101C2B] text-sm">{product.maxOutput}</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-4 font-semibold text-slate-600">Rated AC Output (Kontinyu)</td>
+                      <td class="py-3 px-4 font-bold text-slate-900">{product.ratedOutput}</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600">Tegangan (Rated AC Voltage)</td>
+                      <td class="py-3 px-4 font-bold text-slate-900">{product.voltage}</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-4 font-semibold text-slate-600">Sistem Fasa (Phase)</td>
+                      <td class="py-3 px-4 text-slate-900">{product.phase}</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600">Frekuensi Kerja</td>
+                      <td class="py-3 px-4 text-slate-900">{product.frequency}</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-4 font-semibold text-slate-600">Kapasitas Tangki Bensin</td>
+                      <td class="py-3 px-4 font-bold text-slate-900">{product.fuelTank}</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600">Sistem Penyalaan (Starting)</td>
+                      <td class="py-3 px-4 text-slate-900">{product.startingSystem}</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-4 font-semibold text-slate-600">Dimensi Sasis (P x L x T)</td>
+                      <td class="py-3 px-4 font-mono text-slate-900">{product.dimensions}</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600">Berat Bersih Unit</td>
+                      <td class="py-3 px-4 font-bold text-slate-900">{product.weight}</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-4 font-semibold text-slate-600">Tingkat Kebisingan</td>
+                      <td class="py-3 px-4 text-slate-900">{product.noiseLevel}</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600">Batas Rekomendasi Beban Aman</td>
+                      <td class="py-3 px-4 font-bold text-emerald-800">{product.recommendedLoadMax}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Features & Applications Block -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <!-- Features -->
+              <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-4">
+                <h4 class="font-heading font-extrabold text-base text-[#101C2B] flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#F5B82E]"></span>
+                  <span>Fitur &amp; Keunggulan</span>
+                </h4>
+                <ul class="space-y-2.5 text-xs text-slate-600">
+                  {product.features.map((feat) => (
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Applications -->
+              <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-4">
+                <h4 class="font-heading font-extrabold text-base text-[#101C2B] flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#101C2B]"></span>
+                  <span>Peruntukan &amp; Aplikasi</span>
+                </h4>
+                <ul class="space-y-2.5 text-xs text-slate-600">
+                  {product.applications.map((app) => (
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-[#F5B82E] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      <span>{app}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Other Products in Series -->
+        <div class="mt-20 pt-12 border-t border-slate-300">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h3 class="font-heading font-extrabold text-xl text-[#101C2B]">
+                Varian Lain Seri Genset Portable V-GEN
+              </h3>
+              <p class="text-xs text-slate-500 mt-1">
+                Kapasitas berbeda untuk menyesuaikan total daya beban listrik Anda.
+              </p>
+            </div>
+            <a href="/produk/" class="text-xs font-bold text-[#101C2B] hover:text-[#E5A71D] uppercase tracking-wider">
+              Lihat Semua &rarr;
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {otherProducts.map((op) => (
+              <div class="bg-white rounded-xl border border-slate-200 p-5 hover:shadow-lg hover:border-[#F5B82E] transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="aspect-square bg-slate-50 rounded-lg p-3 mb-4 flex items-center justify-center">
+                    <img
+                      src={op.image}
+                      alt={op.name}
+                      class="w-full h-full object-contain group-hover:scale-105 transition-transform"
+                      loading="lazy"
+                    />
+                  </div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                    {op.model}
+                  </span>
+                  <h4 class="font-heading font-bold text-sm text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-1">
+                    <a href={`/produk/${op.slug}/`}>
+                      {op.name}
+                    </a>
+                  </h4>
+                  <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+                    <span class="text-slate-500">Max:</span>
+                    <strong class="text-slate-900 font-extrabold">{op.maxOutput}</strong>
+                  </div>
+                </div>
+
+                <div class="pt-4">
+                  <a
+                    href={`/produk/${op.slug}/`}
+                    class="w-full inline-flex items-center justify-center py-2 px-3 rounded bg-slate-100 hover:bg-[#101C2B] hover:text-white text-slate-700 text-[11px] font-bold uppercase tracking-wider transition-colors"
+                  >
+                    Lihat Detail
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
