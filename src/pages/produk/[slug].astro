@@ -2,10 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { vgenProducts, type ProductSpec } from '../../data/products';
+import { allProducts, type ProductSpec } from '../../data/products';
 
 export async function getStaticPaths() {
-  return vgenProducts.map((product) => ({
+  return allProducts.map((product) => ({
     params: { slug: product.slug },
     props: { product },
   }));
@@ -17,8 +17,8 @@ interface Props {
 
 const { product } = Astro.props;
 
-// Other products in the series
-const otherProducts = vgenProducts.filter((p) => p.slug !== product.slug);
+// Other products in the same brand series
+const otherProducts = allProducts.filter((p) => p.slug !== product.slug && p.brand === product.brand);
 
 // Schema.org Structured Data
 const jsonLd = {
@@ -35,7 +35,7 @@ const jsonLd = {
   },
   "manufacturer": {
     "@type": "Organization",
-    "name": "Rajawali Diesel Indonesia (RDI)"
+    "name": product.brand
   },
   "offers": {
     "@type": "Offer",
@@ -47,7 +47,7 @@ const jsonLd = {
     "itemCondition": "https://schema.org/NewCondition",
     "seller": {
       "@type": "Organization",
-      "name": "PT. Gensetora Daya Nusantara"
+      "name": "Gensetora Power Solutions"
     }
   }
 };
@@ -117,12 +117,12 @@ const jsonLd = {
                   <div>Tembaga Murni</div>
                 </div>
                 <div class="p-2 rounded bg-slate-50 border border-slate-100">
-                  <div class="text-[#101C2B] font-black text-sm">25 L</div>
-                  <div>Tangki Ekstra</div>
+                  <div class="text-[#101C2B] font-black text-sm">{product.fuel === 'Solar (Diesel)' ? 'Diesel' : 'Bensin'}</div>
+                  <div>Efisiensi Tinggi</div>
                 </div>
                 <div class="p-2 rounded bg-slate-50 border border-slate-100">
-                  <div class="text-emerald-700 font-black text-sm">Dual</div>
-                  <div>Electric Starter</div>
+                  <div class="text-emerald-700 font-black text-sm">{product.phase}</div>
+                  <div>Standar Industri</div>
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@ const jsonLd = {
                 </div>
                 <div>
                   <h4 class="font-bold text-sm text-white">Brosur Asli Resmi</h4>
-                  <p class="text-xs text-slate-400">Distribusi Rajawali Diesel Indonesia</p>
+                  <p class="text-xs text-slate-400">Dokumen Spesifikasi Resmi {product.brand}</p>
                 </div>
               </div>
 
@@ -148,10 +148,10 @@ const jsonLd = {
               <a
                 href={product.brochurePdf}
                 target="_blank"
-                download={`Brosur-${product.model}-Genset-Portable-VGEN.pdf`}
+                download={`Brosur-${product.model}-Gensetora.pdf`}
                 class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#F5B82E] hover:bg-[#E5A71D] text-[#101C2B] font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
               >
-                <span>Unduh Lembar PDF (3.7 MB)</span>
+                <span>Unduh Lembar PDF</span>
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
@@ -167,6 +167,12 @@ const jsonLd = {
             <div class="space-y-3 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
               <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
                 <span class="text-[#F5B82E] bg-[#101C2B] px-2.5 py-0.5 rounded-sm">{product.brand}</span>
+                {product.series && (
+                  <>
+                    <span>•</span>
+                    <span class="text-slate-600 font-semibold">{product.series}</span>
+                  </>
+                )}
                 <span>•</span>
                 <span>{product.type}</span>
               </div>
@@ -198,15 +204,15 @@ const jsonLd = {
                   <div class="font-heading font-bold text-base text-slate-800">{product.voltage}</div>
                 </div>
                 <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <div class="text-[10px] text-slate-500 uppercase font-semibold">Tangki BBM</div>
-                  <div class="font-heading font-bold text-base text-slate-800">{product.fuelTank}</div>
+                  <div class="text-[10px] text-slate-500 uppercase font-semibold">Bahan Bakar</div>
+                  <div class="font-heading font-bold text-base text-slate-800">{product.fuel}</div>
                 </div>
               </div>
 
               <!-- Direct WhatsApp Order Action -->
               <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <a
-                  href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik memesan unit ${product.name} (${product.model}). Mohon info penawaran harga resmi, stok, dan estimasi pengiriman.`)}`}
+                  href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik menanyakan harga resmi dan ketersediaan unit ${product.name} (${product.model}). Mohon informasi penawarannya.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="flex-1 inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-lg bg-[#F5B82E] hover:bg-[#E5A71D] text-[#101C2B] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md active:scale-95"
@@ -233,7 +239,7 @@ const jsonLd = {
                   Lembar Spesifikasi Teknis Lengkap
                 </h3>
                 <p class="text-xs text-slate-500 mt-1">
-                  Parameter operasional terverifikasi berdasarkan standar uji pabrikan Rajawali Diesel Indonesia.
+                  Parameter operasional terverifikasi berdasarkan standar uji resmi pabrikan {product.brand}.
                 </p>
               </div>
 
@@ -248,20 +254,44 @@ const jsonLd = {
                       <td class="py-3 px-4 font-semibold text-slate-600">Model Tipe</td>
                       <td class="py-3 px-4 font-bold text-slate-900">{product.model}</td>
                     </tr>
-                    <tr class="bg-slate-50">
+                    {product.series && (
+                      <tr class="bg-slate-50">
+                        <td class="py-3 px-4 font-semibold text-slate-600">Lini Seri</td>
+                        <td class="py-3 px-4 text-slate-900 font-semibold">{product.series}</td>
+                      </tr>
+                    )}
+                    <tr>
                       <td class="py-3 px-4 font-semibold text-slate-600">Tipe Konstruksi</td>
                       <td class="py-3 px-4 text-slate-900">{product.type}</td>
                     </tr>
-                    <tr>
+                    <tr class="bg-slate-50">
                       <td class="py-3 px-4 font-semibold text-slate-600">Jenis Bahan Bakar</td>
                       <td class="py-3 px-4 text-slate-900">{product.fuel}</td>
                     </tr>
+                    {product.engine && (
+                      <tr>
+                        <td class="py-3 px-4 font-semibold text-slate-600">Mesin / Engine</td>
+                        <td class="py-3 px-4 font-bold text-slate-900">{product.engine}</td>
+                      </tr>
+                    )}
+                    {product.speedControl && (
+                      <tr class="bg-slate-50">
+                        <td class="py-3 px-4 font-semibold text-slate-600">Pengatur Putaran</td>
+                        <td class="py-3 px-4 text-slate-900">{product.speedControl}</td>
+                      </tr>
+                    )}
+                    {product.controller && (
+                      <tr>
+                        <td class="py-3 px-4 font-semibold text-slate-600">Sistem Kontrol (Controller)</td>
+                        <td class="py-3 px-4 text-slate-900 font-semibold">{product.controller}</td>
+                      </tr>
+                    )}
                     <tr class="bg-slate-50">
                       <td class="py-3 px-4 font-semibold text-slate-600">Maksimum AC Output</td>
                       <td class="py-3 px-4 font-black text-[#101C2B] text-sm">{product.maxOutput}</td>
                     </tr>
                     <tr>
-                      <td class="py-3 px-4 font-semibold text-slate-600">Rated AC Output (Kontinyu)</td>
+                      <td class="py-3 px-4 font-semibold text-slate-600">Rated Output (Prime Power)</td>
                       <td class="py-3 px-4 font-bold text-slate-900">{product.ratedOutput}</td>
                     </tr>
                     <tr class="bg-slate-50">
@@ -276,22 +306,40 @@ const jsonLd = {
                       <td class="py-3 px-4 font-semibold text-slate-600">Frekuensi Kerja</td>
                       <td class="py-3 px-4 text-slate-900">{product.frequency}</td>
                     </tr>
-                    <tr>
-                      <td class="py-3 px-4 font-semibold text-slate-600">Kapasitas Tangki Bensin</td>
+                    {product.fuelConsumption && (
+                      <tr>
+                        <td class="py-3 px-4 font-semibold text-slate-600">Konsumsi BBM</td>
+                        <td class="py-3 px-4 font-bold text-emerald-800">{product.fuelConsumption}</td>
+                      </tr>
+                    )}
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600">Kapasitas Tangki BBM</td>
                       <td class="py-3 px-4 font-bold text-slate-900">{product.fuelTank}</td>
                     </tr>
-                    <tr class="bg-slate-50">
+                    <tr>
                       <td class="py-3 px-4 font-semibold text-slate-600">Sistem Penyalaan (Starting)</td>
                       <td class="py-3 px-4 text-slate-900">{product.startingSystem}</td>
                     </tr>
-                    <tr>
+                    <tr class="bg-slate-50">
                       <td class="py-3 px-4 font-semibold text-slate-600">Dimensi Sasis (P x L x T)</td>
                       <td class="py-3 px-4 font-mono text-slate-900">{product.dimensions}</td>
                     </tr>
-                    <tr class="bg-slate-50">
+                    <tr>
                       <td class="py-3 px-4 font-semibold text-slate-600">Berat Bersih Unit</td>
                       <td class="py-3 px-4 font-bold text-slate-900">{product.weight}</td>
                     </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3 px-4 font-semibold text-slate-600">Tingkat Kebisingan</td>
+                      <td class="py-3 px-4 text-slate-900">{product.noiseLevel}</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-4 font-semibold text-slate-600">Batas Rekomendasi Beban Aman</td>
+                      <td class="py-3 px-4 font-bold text-emerald-800">{product.recommendedLoadMax}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
                     <tr>
                       <td class="py-3 px-4 font-semibold text-slate-600">Tingkat Kebisingan</td>
                       <td class="py-3 px-4 text-slate-900">{product.noiseLevel}</td>

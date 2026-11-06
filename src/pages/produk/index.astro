@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { vgenProducts } from '../../data/products';
+import { allProducts, primtechProducts, vgenProducts } from '../../data/products';
 ---
 
 <Layout
-  title="Katalog Produk Genset Portable V-GEN — Gensetora Indonesia"
-  description="Katalog resmi genset portable open type V-GEN bensin kapasitas 2.200 Watt hingga 8.500 Watt (1 Phase 220V & 3 Phase 380V). Unit baru bergaransi resmi distributor Rajawali Diesel."
+  title="Katalog Produk Genset Lengkap — PRIMTECH & V-GEN | Gensetora"
+  description="Katalog resmi genset baru bergaransi: PRIMTECH Prime Series Diesel 20–500 kVA (Common Rail & Silent Canopy) dan V-GEN Portable Open Type 2.200–8.500 Watt."
 >
   <Header />
 
@@ -23,34 +23,43 @@ import { vgenProducts } from '../../data/products';
           <span>/</span>
           <span class="text-[#F5B82E]">Katalog Produk</span>
           <span>/</span>
-          <span class="text-white">Genset Portable V-GEN</span>
+          <span class="text-white">Lini Unit Gensetora</span>
         </nav>
 
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div class="max-w-3xl space-y-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F5B82E]/10 border border-[#F5B82E]/30 text-[#F5B82E] text-xs font-bold uppercase tracking-wider">
-              Resmi Rajawali Diesel Indonesia (RDI)
+              Ready Stock &amp; Bergaransi Pabrik
             </div>
             <h1 class="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight">
-              Katalog Genset Portable Open Type V-GEN
+              Katalog Pembangkit Listrik &amp; Genset
             </h1>
             <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Jajaran genset bensin portable open-frame bertenaga 2.200 W hingga 8.500 W. Dilengkapi sistem dual starter elektrik &amp; recoil, alternator kawat tembaga murni, sasis pipa baja kokoh, dan tangki besar 25 Liter.
+              Jajaran unit genset resmi: Seri diesel industri tugas berat <strong>PRIMTECH</strong> kapasitas 20 kVA hingga 500 kVA (Common Rail System) serta genset bensin portabel <strong>V-GEN</strong> kapasitas 2.200 W hingga 8.500 W (1-Phase &amp; 3-Phase).
             </p>
           </div>
 
-          <!-- Download Action -->
-          <div class="shrink-0">
+          <!-- Download Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
             <a
-              href="/downloads/brosur-vgen-portable-open-type.pdf"
+              href="/downloads/katalog-genset-diesel-primtech-prime-series.pdf"
               target="_blank"
               download
-              class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-[#F5B82E] hover:bg-[#E5A71D] text-[#101C2B] font-bold text-xs uppercase tracking-wider shadow-lg transition-all"
+              class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-[#F5B82E] hover:bg-[#E5A71D] text-[#101C2B] font-bold text-xs uppercase tracking-wider shadow-md transition-all"
             >
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              <span>Download Brosur Resmi PDF (3.7 MB)</span>
+              <span>Katalog PRIMTECH Diesel (PDF)</span>
+            </a>
+
+            <a
+              href="/downloads/brosur-vgen-portable-open-type.pdf"
+              target="_blank"
+              download
+              class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-slate-700 hover:border-slate-400 text-slate-200 text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              <span>Brosur V-GEN Portable (PDF)</span>
             </a>
           </div>
         </div>
@@ -62,164 +71,230 @@ import { vgenProducts } from '../../data/products';
     <section class="py-16 sm:py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
-          <div>
-            <h2 class="font-heading text-2xl font-extrabold text-[#101C2B]">
-              Daftar Unit Genset V-GEN Portable Ready Stock
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-500 mt-1">
-              Menampilkan {vgenProducts.length} pilihan model genset bensin portable dari seri VG 3500 LX hingga VG 12500 LX.
-            </p>
+        <!-- Filter Tabs / Brand Switcher -->
+        <div class="mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-slate-200 pb-6">
+          <div class="flex flex-wrap items-center gap-2">
+            <a
+              href="/produk/"
+              class="px-4 py-2 rounded-lg bg-[#101C2B] text-white text-xs font-bold uppercase tracking-wider shadow-xs"
+            >
+              Semua Produk ({allProducts.length})
+            </a>
+            <a
+              href="#primtech"
+              class="px-4 py-2 rounded-lg bg-white border border-slate-200 hover:border-[#101C2B] text-slate-700 text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              PRIMTECH Diesel ({primtechProducts.length})
+            </a>
+            <a
+              href="#vgen"
+              class="px-4 py-2 rounded-lg bg-white border border-slate-200 hover:border-[#101C2B] text-slate-700 text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              V-GEN Portable ({vgenProducts.length})
+            </a>
           </div>
 
-          <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-            <span>Standar Garansi Resmi</span>
-            <span class="text-slate-400">•</span>
-            <span>Uji Beban 100% Sebelum Kirim</span>
+          <div class="text-xs text-slate-500 font-medium">
+            <span>Uji Beban Load Bank 100%</span>
+            <span class="mx-2">•</span>
+            <span>Garansi Resmi &amp; Teknisi 24 Jam</span>
           </div>
         </div>
 
-        <!-- 5 Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {vgenProducts.map((p) => (
-            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#F5B82E] transition-all flex flex-col justify-between group">
-              <div>
-                
-                <!-- Image Header -->
-                <div class="p-6 bg-slate-50/60 border-b border-slate-100 relative">
-                  {p.badge && (
-                    <div class="absolute top-4 left-4 z-10">
-                      <span class="px-3 py-1 rounded-full bg-[#101C2B] text-[#F5B82E] text-[11px] font-bold tracking-wider uppercase">
-                        {p.badge}
-                      </span>
-                    </div>
-                  )}
-                  <div class="absolute top-4 right-4 z-10">
-                    <span class="px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700 text-[11px] font-bold">
-                      {p.voltage}
-                    </span>
+        <!-- Section 1: PRIMTECH Prime Series Diesel -->
+        <div id="primtech" class="mb-16">
+          <div class="mb-8">
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-slate-900 text-[#F5B82E] text-[11px] font-bold uppercase tracking-wider mb-2">
+              PRIMTECH Prime Series
+            </div>
+            <h2 class="font-heading text-2xl sm:text-3xl font-black text-[#101C2B]">
+              Genset Diesel Industri PRIMTECH (20 – 500 kVA)
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">
+              Ditenagai mesin YUNNEI Common Rail, SmartGen Controller, dan bodi Silent Canopy berperedam suara api tahan lama.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {primtechProducts.map((p) => (
+              <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#F5B82E] transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="p-6 bg-slate-50/70 border-b border-slate-100 relative">
+                    {p.badge && (
+                      <div class="absolute top-3 left-3 z-10">
+                        <span class="px-2.5 py-0.5 rounded-full bg-[#101C2B] text-[#F5B82E] text-[10px] font-bold uppercase tracking-wider">
+                          {p.badge}
+                        </span>
+                      </div>
+                    )}
+                    <a href={`/produk/${p.slug}/`} class="block aspect-square max-w-[220px] mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        class="w-full h-full object-contain filter drop-shadow-md"
+                        loading="lazy"
+                        width="350"
+                        height="350"
+                      />
+                    </a>
                   </div>
 
-                  <a href={`/produk/${p.slug}/`} class="block aspect-square max-w-[280px] mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                    <img
-                      src={p.image}
-                      alt={p.name}
-                      class="w-full h-full object-contain filter drop-shadow-md"
-                      loading="lazy"
-                      width="400"
-                      height="400"
-                    />
+                  <div class="p-5 space-y-3">
+                    <div>
+                      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        {p.brand} • {p.series}
+                      </span>
+                      <h3 class="font-heading font-extrabold text-base text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-0.5">
+                        <a href={`/produk/${p.slug}/`}>
+                          {p.model}
+                        </a>
+                      </h3>
+                      <p class="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
+                        {p.shortDesc}
+                      </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-100">
+                      <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
+                        <span class="text-[9px] text-slate-400 uppercase block font-semibold">Prime Power</span>
+                        <strong class="text-[#101C2B] font-extrabold text-xs">{p.ratedOutput.split('(')[0]}</strong>
+                      </div>
+                      <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
+                        <span class="text-[9px] text-slate-400 uppercase block font-semibold">Standby Power</span>
+                        <strong class="text-slate-800 font-bold text-xs">{p.maxOutput.split('(')[0]}</strong>
+                      </div>
+                    </div>
+
+                    <div class="space-y-1 text-[11px] pt-1 text-slate-500">
+                      <div class="flex justify-between">
+                        <span>Engine:</span>
+                        <strong class="text-slate-700 truncate max-w-[130px]">{p.engine?.split('(')[0]}</strong>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Konsumsi 100%:</span>
+                        <strong class="text-emerald-700">{p.fuelConsumption?.split('•')[0]}</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-5 pt-0 space-y-2">
+                  <a
+                    href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik menanyakan harga dan spesifikasi teknis ${p.name} (${p.model}). Mohon informasinya.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
+                  >
+                    <span>Minta Penawaran</span>
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                  <a
+                    href={`/produk/${p.slug}/`}
+                    class="w-full inline-flex items-center justify-center py-1.5 px-3 rounded text-slate-600 hover:text-[#101C2B] text-xs font-semibold tracking-wide transition-colors"
+                  >
+                    Lembar Spesifikasi &rarr;
                   </a>
                 </div>
-
-                <!-- Body Info -->
-                <div class="p-6 space-y-4">
-                  <div>
-                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      {p.brand} • {p.type}
-                    </span>
-                    <h3 class="font-heading font-extrabold text-xl text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-1">
-                      <a href={`/produk/${p.slug}/`}>
-                        {p.model}
-                      </a>
-                    </h3>
-                    <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
-                      {p.shortDesc}
-                    </p>
-                  </div>
-
-                  <!-- Spec Grid -->
-                  <div class="grid grid-cols-2 gap-2 text-xs pt-2">
-                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                      <span class="text-[10px] text-slate-500 uppercase block font-medium">Output Maksimum</span>
-                      <strong class="text-slate-900 font-extrabold text-sm text-[#101C2B]">{p.maxOutput}</strong>
-                    </div>
-                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                      <span class="text-[10px] text-slate-500 uppercase block font-medium">Output Kontinyu</span>
-                      <strong class="text-slate-900 font-bold text-sm">{p.ratedOutput}</strong>
-                    </div>
-                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                      <span class="text-[10px] text-slate-500 uppercase block font-medium">Kapasitas Tangki</span>
-                      <strong class="text-slate-900 font-bold">{p.fuelTank}</strong>
-                    </div>
-                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                      <span class="text-[10px] text-slate-500 uppercase block font-medium">Starter</span>
-                      <strong class="text-slate-900 font-bold text-[11px]">Dual Starter</strong>
-                    </div>
-                  </div>
-
-                  <!-- Dimensions & Weight -->
-                  <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                    <span>Dimensi: <strong class="text-slate-700">{p.dimensions}</strong></span>
-                    <span>Berat: <strong class="text-slate-700">{p.weight}</strong></span>
-                  </div>
-                </div>
-
               </div>
-
-              <!-- Footer CTA -->
-              <div class="p-6 pt-0 space-y-2">
-                <a
-                  href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik menanyakan harga dan spesifikasi teknis ${p.name} (${p.maxOutput}). Mohon informasinya.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
-                >
-                  <span>Minta Penawaran Unit</span>
-                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
-                <a
-                  href={`/produk/${p.slug}/`}
-                  class="w-full inline-flex items-center justify-center py-2 px-4 rounded-lg text-slate-600 hover:text-[#101C2B] text-xs font-semibold tracking-wide transition-colors"
-                >
-                  Detail &amp; Lembar Spesifikasi &rarr;
-                </a>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <!-- FAQ Section -->
-        <div class="mt-20 bg-white rounded-2xl border border-slate-200 p-8 sm:p-12">
-          <div class="max-w-2xl mb-8">
-            <h3 class="font-heading text-xl sm:text-2xl font-black text-[#101C2B]">
-              Pertanyaan Seputar Genset Portable V-GEN
-            </h3>
+        <!-- Section 2: V-GEN Portable Open Type -->
+        <div id="vgen" class="pt-8 border-t border-slate-200">
+          <div class="mb-8">
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-slate-900 text-[#F5B82E] text-[11px] font-bold uppercase tracking-wider mb-2">
+              V-GEN Portable Open Type
+            </div>
+            <h2 class="font-heading text-2xl sm:text-3xl font-black text-[#101C2B]">
+              Genset Bensin Portable V-GEN (2.200 – 8.500 W)
+            </h2>
             <p class="text-xs sm:text-sm text-slate-600 mt-1">
-              Informasi teknis penting yang sering ditanyakan sebelum memilih tipe genset bensin portable.
+              Genset bensin open-frame ringkas untuk UMKM, ruko, restoran, food truck, serta varian industri 3-Phase 380V.
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-slate-700">
-            <div class="space-y-2 p-5 rounded-xl bg-slate-50 border border-slate-200/80">
-              <h4 class="font-bold text-[#101C2B] text-sm">Berapa jam genset V-GEN bisa beroperasi dengan tangki 25 Liter?</h4>
-              <p class="text-slate-600 leading-relaxed">
-                Dengan tangki bensin penuh 25 Liter dan beban operasional rata-rata 50%–75%, genset seri VG 3500 LX – VG 7500 LX dapat beroperasi terus-menerus selama 8 hingga 12 jam tanpa henti.
-              </p>
-            </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {vgenProducts.map((p) => (
+              <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#F5B82E] transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="p-6 bg-slate-50/70 border-b border-slate-100 relative">
+                    {p.badge && (
+                      <div class="absolute top-4 left-4 z-10">
+                        <span class="px-3 py-1 rounded-full bg-[#101C2B] text-[#F5B82E] text-[11px] font-bold uppercase tracking-wider">
+                          {p.badge}
+                        </span>
+                      </div>
+                    )}
+                    <div class="absolute top-4 right-4 z-10">
+                      <span class="px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700 text-[11px] font-bold">
+                        {p.voltage}
+                      </span>
+                    </div>
 
-            <div class="space-y-2 p-5 rounded-xl bg-slate-50 border border-slate-200/80">
-              <h4 class="font-bold text-[#101C2B] text-sm">Apa maksud dari sistem "Dual Starter"?</h4>
-              <p class="text-slate-600 leading-relaxed">
-                Unit dilengkapi starter elektrik (cukup putar kunci starter instan tanpa tenaga) didukung aki bawaan, serta tetap memiliki recoil starter (tali tarikan manual) sebagai cadangan jika aki sedang lemah.
-              </p>
-            </div>
+                    <a href={`/produk/${p.slug}/`} class="block aspect-square max-w-[260px] mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        class="w-full h-full object-contain filter drop-shadow-md"
+                        loading="lazy"
+                        width="380"
+                        height="380"
+                      />
+                    </a>
+                  </div>
 
-            <div class="space-y-2 p-5 rounded-xl bg-slate-50 border border-slate-200/80">
-              <h4 class="font-bold text-[#101C2B] text-sm">Kapan harus memilih VG 12500 LX 3-Phase?</h4>
-              <p class="text-slate-600 leading-relaxed">
-                Pilih model VG 12500 LX jika Anda memiliki beban mesin industri atau motor 3 fasa (380V), seperti pompa submersible besar, kompresor 3-phase, atau mesin bengkel. Varian ini juga memiliki socket 220V untuk beban 1 fasa standar.
-              </p>
-            </div>
+                  <div class="p-6 space-y-3">
+                    <div>
+                      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        {p.brand} • {p.type}
+                      </span>
+                      <h3 class="font-heading font-extrabold text-xl text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-1">
+                        <a href={`/produk/${p.slug}/`}>
+                          {p.model}
+                        </a>
+                      </h3>
+                      <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
+                        {p.shortDesc}
+                      </p>
+                    </div>
 
-            <div class="space-y-2 p-5 rounded-xl bg-slate-50 border border-slate-200/80">
-              <h4 class="font-bold text-[#101C2B] text-sm">Bagaimana dukungan purna jual dan suku cadang?</h4>
-              <p class="text-slate-600 leading-relaxed">
-                Setiap unit V-GEN didistribusikan resmi oleh Rajawali Diesel Indonesia (RDI) melalui Gensetora, dengan garansi pabrik, ketersediaan suku cadang fast-moving (karburator, busi, AVR, filter), dan dukungan tim mekanik berpengalaman.
-              </p>
-            </div>
+                    <div class="grid grid-cols-2 gap-2 text-xs pt-2">
+                      <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                        <span class="text-[10px] text-slate-400 uppercase block font-semibold">Max Output</span>
+                        <strong class="text-slate-900 font-extrabold text-sm text-[#101C2B]">{p.maxOutput}</strong>
+                      </div>
+                      <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                        <span class="text-[10px] text-slate-400 uppercase block font-semibold">Rated Output</span>
+                        <strong class="text-slate-900 font-bold text-sm">{p.ratedOutput}</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-6 pt-0 space-y-2">
+                  <a
+                    href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik menanyakan harga dan ketersediaan unit ${p.name}. Mohon informasinya.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
+                  >
+                    <span>Minta Penawaran</span>
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                  <a
+                    href={`/produk/${p.slug}/`}
+                    class="w-full inline-flex items-center justify-center py-2 px-4 rounded text-slate-600 hover:text-[#101C2B] text-xs font-semibold tracking-wide transition-colors"
+                  >
+                    Detail Spesifikasi &rarr;
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
