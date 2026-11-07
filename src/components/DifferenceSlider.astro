@@ -1,0 +1,147 @@
+---
+---
+
+<section id="perbedaan" class="py-20 sm:py-24 bg-white border-b border-slate-200">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <!-- Heading -->
+    <div class="mb-4">
+      <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-[#101C2B] tracking-tight">
+        Risiko Pemadaman Listrik vs Proteksi Gensetora
+      </h2>
+    </div>
+    <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+      Bandingkan kerugian downtime operasional saat listrik padam mendadak dengan kontinuitas daya otomatis panel ATS dan unit genset terstandarisasi. Geser slider untuk melihat perbedaannya.
+    </p>
+
+    <!-- Before / After Interactive Split Comparison Container (Mechline Signature) -->
+    <div class="relative w-full max-w-4xl mx-auto aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden border border-slate-300 shadow-md select-none" id="diff-slider-container">
+      
+      <!-- Right Image / After: Gensetora Active Power -->
+      <img
+        src="/images/after-gensetora.webp"
+        alt="Daya Listrik Terjamin dengan Gensetora Power Solutions"
+        class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      />
+      
+      <!-- After Tag Label -->
+      <div class="absolute bottom-3 sm:bottom-auto sm:top-4 right-3 sm:right-4 z-20 pointer-events-none">
+        <span class="px-3 py-1.5 rounded-full bg-emerald-600 text-white text-xs font-bold shadow-md uppercase tracking-wider">
+          Gensetora Power (100% Aktif)
+        </span>
+      </div>
+
+      <!-- After Specs Overlay (Desktop only) -->
+      <div class="absolute bottom-4 right-4 z-20 pointer-events-none text-right hidden md:block">
+        <div class="bg-slate-950/90 text-white text-xs p-3 rounded-lg border border-white/20 space-y-1">
+          <div class="font-bold text-emerald-400">✓ ATS Otomatis 5–10 Detik</div>
+          <div>✓ Proteksi Kerusakan Mesin Pabrik</div>
+          <div>✓ 0 Menit Downtime Bisnis</div>
+        </div>
+      </div>
+
+      <!-- Left Image / Before: Blackout Overlaid -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none" id="diff-before-wrapper" style="width: 50%;">
+        <img
+          src="/images/before-blackout.webp"
+          alt="Kerugian Pemadaman Listrik Tanpa Genset"
+          class="absolute inset-0 w-full h-full object-cover max-w-none"
+          id="diff-before-img"
+        />
+        
+        <!-- Before Tag Label -->
+        <div class="absolute bottom-3 sm:bottom-auto sm:top-4 left-3 sm:left-4 z-20 pointer-events-none">
+          <span class="px-3 py-1.5 rounded-full bg-red-600 text-white text-xs font-bold shadow-md uppercase tracking-wider">
+            Tanpa Genset (Blackout)
+          </span>
+        </div>
+
+        <!-- Before Specs Overlay (Desktop only) -->
+        <div class="absolute bottom-4 left-4 z-20 pointer-events-none text-left hidden md:block">
+          <div class="bg-slate-950/90 text-white text-xs p-3 rounded-lg border border-white/20 space-y-1">
+            <div class="font-bold text-red-400">✕ Produksi &amp; Server Terhenti</div>
+            <div>✕ Bahan Baku Rusak Terbuang</div>
+            <div>✕ Kerugian Jutaan Rupiah / Jam</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Draggable Split Handle Divider -->
+      <div
+        class="absolute top-0 bottom-0 z-30 cursor-ew-resize flex items-center justify-center -translate-x-1/2"
+        id="diff-handle"
+        style="left: 50%;"
+      >
+        <div class="w-1 h-full bg-[#F5B82E] shadow-[0_0_10px_rgba(245,184,46,0.8)]"></div>
+        <div class="absolute w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#101C2B] border-2 border-[#F5B82E] shadow-xl flex items-center justify-center text-[#F5B82E]">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 9l-4 3 4 3m8-6l4 3-4 3" />
+          </svg>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function setupSlider() {
+    const container = document.getElementById('diff-slider-container');
+    const beforeWrapper = document.getElementById('diff-before-wrapper');
+    const beforeImg = document.getElementById('diff-before-img');
+    const handle = document.getElementById('diff-handle');
+
+    if (!container || !beforeWrapper || !beforeImg || !handle) return;
+
+    let isDragging = false;
+
+    function updateWidths() {
+      const containerWidth = container.offsetWidth;
+      beforeImg.style.width = `${containerWidth}px`;
+    }
+
+    function setPosition(x: number) {
+      const rect = container.getBoundingClientRect();
+      let pos = (x - rect.left) / rect.width;
+      if (pos < 0.05) pos = 0.05;
+      if (pos > 0.95) pos = 0.95;
+      const pct = pos * 100;
+      beforeWrapper.style.width = `${pct}%`;
+      handle.style.left = `${pct}%`;
+    }
+
+    function onPointerDown(e: PointerEvent | MouseEvent | TouchEvent) {
+      isDragging = true;
+      const clientX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+      setPosition(clientX);
+    }
+
+    function onPointerMove(e: PointerEvent | MouseEvent | TouchEvent) {
+      if (!isDragging) return;
+      const clientX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+      setPosition(clientX);
+    }
+
+    function onPointerUp() {
+      isDragging = false;
+    }
+
+    container.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('mouseup', onPointerUp);
+
+    container.addEventListener('touchstart', onPointerDown, { passive: true });
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+    window.addEventListener('touchend', onPointerUp);
+
+    window.addEventListener('resize', updateWidths);
+    updateWidths();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupSlider);
+  } else {
+    setupSlider();
+  }
+</script>

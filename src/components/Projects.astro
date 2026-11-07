@@ -1,0 +1,104 @@
+---
+const projects = [
+  {
+    title: "Pabrik Manufaktur Otomotif GIIC Cikarang",
+    category: "Industrial Power",
+    specs: "2x Cummins 1.000 kVA + Panel ATS Synchronizing",
+    desc: "Pemasangan 2 unit genset open type sistem sinkronisasi otomatis untuk membackup lini perakitan komponen otomotif tanpa jeda.",
+    img: "/images/machine-diesel.webp",
+    location: "Cikarang, Jawa Barat"
+  },
+  {
+    title: "Festival Musik Internasional GWK Bali",
+    category: "Rental & Event",
+    specs: "4x Silent 250 kVA + Kabel Feeder 600m",
+    desc: "Suplai daya listrik sound system dan tata cahaya panggung utama selama 3 hari festival nonstop dengan pengawasan 4 operator teknisi.",
+    img: "/images/machine-trailer.webp",
+    location: "Badung, Bali"
+  },
+  {
+    title: "Rumah Sakit Umum & Rawat Inap Surabaya",
+    category: "Healthcare Standby",
+    specs: "1x Perkins 500 kVA Ultra Silent <65 dB",
+    desc: "Instalasi genset canopy peredam suara ganda untuk ruang operasi dan ICU dengan sistem ATS otomatis menyala dalam 5 detik.",
+    img: "/images/machine-silent.webp",
+    location: "Surabaya, Jawa Timur"
+  },
+  {
+    title: "Gudang Logistik & Cold Storage Marunda",
+    category: "Commercial Storage",
+    specs: "2x Doosan 350 kVA + Kontrak Maintenance",
+    desc: "Proteksi temperatur ruang pendingin beku bahan makanan dengan sistem backup genset dan tangki solar terintegrasi.",
+    img: "/images/machine-ats.webp",
+    location: "Jakarta Utara"
+  }
+];
+---
+
+<section id="proyek" class="py-20 sm:py-24 bg-[#F3F6FA] border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-14">
+      <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-[#101C2B] tracking-tight">
+        Pengalaman Instalasi &amp; Suplai Daya di Berbagai Sektor
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
+        Dipercaya oleh pabrik manufaktur, event organizer nasional, rumah sakit, gedung perkantoran, dan kontraktor di seluruh Indonesia.
+      </p>
+    </div>
+
+    <!-- 4-Card Project Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {projects.map((item) => (
+        <div class="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:shadow-lg transition-all group flex flex-col justify-between">
+          <div>
+            <div class="aspect-video overflow-hidden bg-slate-900 relative">
+              <img
+                src={item.img}
+                alt={item.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-[#101C2B]/90 backdrop-blur-xs text-[#F5B82E] text-xs font-bold uppercase tracking-wider">
+                  {item.category}
+                </span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/75 text-white text-[11px] font-medium">
+                  📍 {item.location}
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-3">
+              <h3 class="font-heading font-extrabold text-lg sm:text-xl text-[#101C2B] leading-snug group-hover:text-[#E5A71D] transition-colors">
+                {item.title}
+              </h3>
+              <div class="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 inline-block px-2.5 py-1 rounded">
+                ⚡ {item.specs}
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <a
+              href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya melihat portofolio proyek "${item.title}" dan ingin konsultasi kebutuhan genset serupa.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#101C2B] group-hover:text-[#E5A71D] transition-colors"
+            >
+              <span>Konsultasi Solusi Serupa</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
