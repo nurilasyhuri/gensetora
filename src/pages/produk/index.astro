@@ -135,17 +135,14 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
 
                   <div class="p-5 space-y-3">
                     <div>
-                      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        {p.brand} • {p.series}
+                      <span class="text-[10px] font-bold uppercase tracking-wider text-[#F5B82E] block">
+                        {p.model}
                       </span>
                       <h3 class="font-heading font-extrabold text-base text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-0.5">
                         <a href={`/produk/${p.slug}/`}>
-                          {p.model}
+                          {p.name}
                         </a>
                       </h3>
-                      <p class="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
-                        {p.shortDesc}
-                      </p>
                     </div>
 
                     <div class="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-100">
@@ -159,36 +156,19 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
                       </div>
                     </div>
 
-                    <div class="space-y-1 text-[11px] pt-1 text-slate-500">
-                      <div class="flex justify-between">
-                        <span>Engine:</span>
-                        <strong class="text-slate-700 truncate max-w-[130px]">{p.engine?.split('(')[0]}</strong>
-                      </div>
-                      <div class="flex justify-between">
-                        <span>Konsumsi 100%:</span>
-                        <strong class="text-emerald-700">{p.fuelConsumption?.split('•')[0]}</strong>
-                      </div>
+                    <div class="pt-1 border-t border-slate-100 text-xs flex justify-between text-slate-500">
+                      <span>Mesin:</span>
+                      <strong class="text-slate-700 truncate max-w-[140px]">{p.engine?.split('(')[0]}</strong>
                     </div>
                   </div>
                 </div>
 
-                <div class="p-5 pt-0 space-y-2">
-                  <a
-                    href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik menanyakan harga dan spesifikasi teknis ${p.name} (${p.model}). Mohon informasinya.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
-                  >
-                    <span>Minta Penawaran</span>
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
+                <div class="p-5 pt-0">
                   <a
                     href={`/produk/${p.slug}/`}
-                    class="w-full inline-flex items-center justify-center py-1.5 px-3 rounded text-slate-600 hover:text-[#101C2B] text-xs font-semibold tracking-wide transition-colors"
+                    class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
                   >
-                    Lembar Spesifikasi &rarr;
+                    <span>Lihat Spesifikasi &rarr;</span>
                   </a>
                 </div>
               </div>
@@ -242,49 +222,40 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
 
                   <div class="p-6 space-y-3">
                     <div>
-                      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        {p.brand} • {p.type}
+                      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                        {p.model}
                       </span>
-                      <h3 class="font-heading font-extrabold text-xl text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-1">
+                      <h3 class="font-heading font-extrabold text-xl text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-0.5">
                         <a href={`/produk/${p.slug}/`}>
-                          {p.model}
+                          {p.name}
                         </a>
                       </h3>
-                      <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
-                        {p.shortDesc}
-                      </p>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-2 text-xs pt-2">
+                    <div class="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-100">
                       <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                        <span class="text-[10px] text-slate-400 uppercase block font-semibold">Max Output</span>
-                        <strong class="text-slate-900 font-extrabold text-sm text-[#101C2B]">{p.maxOutput}</strong>
+                        <span class="text-[9px] text-slate-400 uppercase block font-semibold">Max Output</span>
+                        <strong class="text-slate-900 font-extrabold text-xs text-[#101C2B]">{p.maxOutput}</strong>
                       </div>
                       <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                        <span class="text-[10px] text-slate-400 uppercase block font-semibold">Rated Output</span>
-                        <strong class="text-slate-900 font-bold text-sm">{p.ratedOutput}</strong>
+                        <span class="text-[9px] text-slate-400 uppercase block font-semibold">Rated Output</span>
+                        <strong class="text-slate-800 font-bold text-xs">{p.ratedOutput}</strong>
                       </div>
+                    </div>
+
+                    <div class="pt-1 border-t border-slate-100 text-xs flex justify-between text-slate-600">
+                      <span>Voltase: <strong class="text-slate-800">{p.voltage}</strong></span>
+                      <span>Tangki: <strong class="text-slate-800">{p.fuelTank}</strong></span>
                     </div>
                   </div>
                 </div>
 
-                <div class="p-6 pt-0 space-y-2">
-                  <a
-                    href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik menanyakan harga dan ketersediaan unit ${p.name}. Mohon informasinya.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
-                  >
-                    <span>Minta Penawaran</span>
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
+                <div class="p-6 pt-0">
                   <a
                     href={`/produk/${p.slug}/`}
-                    class="w-full inline-flex items-center justify-center py-2 px-4 rounded text-slate-600 hover:text-[#101C2B] text-xs font-semibold tracking-wide transition-colors"
+                    class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-xs"
                   >
-                    Detail Spesifikasi &rarr;
+                    <span>Lihat Spesifikasi &rarr;</span>
                   </a>
                 </div>
               </div>

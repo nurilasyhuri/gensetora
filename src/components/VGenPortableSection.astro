@@ -75,47 +75,34 @@ import { vgenProducts } from '../data/products';
             </div>
 
             <!-- Content Area -->
-            <div class="p-6 space-y-4">
+            <div class="p-6 space-y-3">
               <!-- Title & Model -->
               <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                  {p.brand} • {p.model}
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
+                  {p.model}
                 </span>
-                <h3 class="font-heading font-extrabold text-lg text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-1">
+                <h3 class="font-heading font-extrabold text-base text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-0.5">
                   <a href={`/produk/${p.slug}/`}>
                     {p.name}
                   </a>
                 </h3>
-                <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
-                  {p.shortDesc}
-                </p>
               </div>
 
               <!-- Key Specs Highlight -->
-              <div class="grid grid-cols-2 gap-2 pt-3 border-t border-slate-200 text-xs">
+              <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200 text-xs">
                 <div class="bg-white p-2.5 rounded-lg border border-slate-200/80">
-                  <span class="text-[10px] text-slate-500 uppercase tracking-wider block font-medium">Max Output</span>
-                  <strong class="text-slate-900 font-extrabold text-sm text-[#101C2B]">{p.maxOutput}</strong>
+                  <span class="text-[9px] text-slate-500 uppercase tracking-wider block font-semibold">Max Output</span>
+                  <strong class="text-[#101C2B] font-extrabold text-xs">{p.maxOutput}</strong>
                 </div>
                 <div class="bg-white p-2.5 rounded-lg border border-slate-200/80">
-                  <span class="text-[10px] text-slate-500 uppercase tracking-wider block font-medium">Rated Output</span>
-                  <strong class="text-slate-900 font-bold text-sm">{p.ratedOutput}</strong>
-                </div>
-                <div class="bg-white p-2.5 rounded-lg border border-slate-200/80">
-                  <span class="text-[10px] text-slate-500 uppercase tracking-wider block font-medium">Voltase / Phase</span>
-                  <strong class="text-slate-900 font-bold text-xs">{p.voltage}</strong>
-                </div>
-                <div class="bg-white p-2.5 rounded-lg border border-slate-200/80">
-                  <span class="text-[10px] text-slate-500 uppercase tracking-wider block font-medium">Tangki BBM</span>
-                  <strong class="text-slate-900 font-bold text-xs">{p.fuelTank}</strong>
+                  <span class="text-[9px] text-slate-500 uppercase tracking-wider block font-semibold">Rated Output</span>
+                  <strong class="text-slate-800 font-bold text-xs">{p.ratedOutput}</strong>
                 </div>
               </div>
 
-              <!-- Quick Feature Badges -->
-              <div class="pt-2 flex flex-wrap gap-1.5 text-[11px]">
-                <span class="px-2 py-0.5 rounded-sm bg-slate-200/80 text-slate-700 font-medium">Dual Starter</span>
-                <span class="px-2 py-0.5 rounded-sm bg-slate-200/80 text-slate-700 font-medium">Roda Dorong</span>
-                <span class="px-2 py-0.5 rounded-sm bg-slate-200/80 text-slate-700 font-medium">{p.weight}</span>
+              <div class="pt-1.5 border-t border-slate-200 text-xs flex justify-between text-slate-600">
+                <span>Voltase: <strong class="text-slate-800">{p.voltage}</strong></span>
+                <span>Tangki: <strong class="text-slate-800">{p.fuelTank}</strong></span>
               </div>
             </div>
           </div>
@@ -123,22 +110,10 @@ import { vgenProducts } from '../data/products';
           <!-- Bottom Card Buttons -->
           <div class="p-6 pt-0 space-y-2">
             <a
-              href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya tertarik menanyakan harga dan stok untuk unit ${p.name} (${p.maxOutput} - ${p.voltage}). Mohon informasi penawarannya.`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-xs"
-            >
-              <span>Minta Penawaran Harga</span>
-              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-
-            <a
               href={`/produk/${p.slug}/`}
-              class="w-full inline-flex items-center justify-center py-2 px-4 rounded-lg text-slate-600 hover:text-[#101C2B] hover:bg-slate-200/60 text-xs font-semibold tracking-wide transition-colors"
+              class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-xs"
             >
-              Lihat Spesifikasi Lengkap &rarr;
+              <span>Lihat Spesifikasi &rarr;</span>
             </a>
           </div>
 
