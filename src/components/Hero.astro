@@ -23,16 +23,16 @@ const slides = [
 ];
 
 const metrics = [
-  { value: "1 – 2.000", unit: "kVA", label: "Rentang Kapasitas Lengkap" },
-  { value: "< 15", unit: "Menit", label: "Respon Cepat Tim Teknis" },
-  { value: "100%", unit: "Asli", label: "Garansi Mesin & Komponen" },
-  { value: "ISO 8528", unit: "", label: "Standar Uji Beban Pabrik" }
+  { value: "1 – 2.000", unit: "kVA", label: "Rentang Kapasitas" },
+  { value: "< 15", unit: "Menit", label: "Respon Tim Teknis" },
+  { value: "100%", unit: "Asli", label: "Garansi Mesin" },
+  { value: "ISO 8528", unit: "", label: "Standar Uji Beban" }
 ];
 ---
 
 <section
   id="hero-slider"
-  class="relative w-full min-h-[580px] lg:min-h-[660px] bg-[#0B131E] text-white overflow-hidden flex flex-col justify-between py-12 sm:py-16 lg:py-20 select-none"
+  class="relative w-full min-h-[620px] lg:min-h-[700px] bg-[#0B131E] text-white overflow-hidden flex flex-col justify-between py-12 sm:py-16 lg:py-20 select-none"
   aria-label="Gensetora Power Solutions Showcase"
 >
   <!-- Background Image Slideshow Container -->
@@ -51,8 +51,8 @@ const metrics = [
           height="1080"
         />
         <!-- Gradients for pristine contrast (mscscaffolding standard) -->
-        <div class="absolute inset-0 bg-gradient-to-r from-[#0B131E]/95 via-[#101C2B]/85 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0B131E] via-transparent to-[#0B131E]/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0B131E] via-[#0B131E]/90 to-[#0B131E]/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0B131E] via-transparent to-[#0B131E]/60"></div>
       </div>
     ))}
   </div>
@@ -61,32 +61,27 @@ const metrics = [
   <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-12 sm:pt-16 my-auto">
     <div class="max-w-3xl space-y-4 sm:space-y-6">
 
-      <!-- Main Headline + Highlight Accent Line -->
-      <div class="space-y-2">
-        <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
-          Solusi Genset Andal untuk Kebutuhan Bisnis &amp; Industri
-        </h1>
-        <div class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#F5B82E] tracking-tight">
-          Kapasitas 1 kVA – 2.000 kVA Berstandar Resmi
-        </div>
-      </div>
+      <!-- Main Headline (One Cohesive, Command-Level H1) -->
+      <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-normal leading-[1.14]">
+        Solusi Genset Andal <span class="text-[#F5B82E]">1 kVA – 2.000 kVA</span>
+      </h1>
 
       <!-- Clean supporting copy -->
-      <p class="text-sm sm:text-base lg:text-lg text-slate-200 font-normal leading-relaxed max-w-2xl">
-        Penyediaan unit genset baru bergaransi resmi, perakitan panel otomatis ATS-AMF, dan pemeliharaan berkala didukung tim rekayasa teknis berpengalaman di seluruh Indonesia.
+      <p class="text-sm sm:text-base lg:text-lg text-slate-200 font-normal leading-relaxed max-w-xl">
+        Distribusi genset bergaransi resmi pabrik, perakitan panel otomatis ATS-AMF, dan pemeliharaan berkala didukung tim rekayasa berpengalaman di seluruh Indonesia.
       </p>
 
-      <!-- EXACTLY 1 BUTTON (Single Clean Important Action) -->
+      <!-- EXACTLY 1 BUTTON (Single Clean High-Contrast Action) -->
       <div class="pt-2">
         <a
           href="#kontak"
           id="btn_hero_cta"
-          class="inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl bg-[#F5B82E] hover:bg-[#E5A71D] active:scale-95 text-[#101C2B] font-bold text-xs sm:text-sm tracking-wide uppercase shadow-xl shadow-amber-950/40 transition-colors duration-200 group"
+          class="inline-flex items-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl bg-[#F5B82E] hover:bg-[#E5A71D] active:scale-95 text-[#101C2B] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-xl shadow-amber-950/40 transition-colors duration-200 group"
         >
-          <svg class="w-4 h-4 text-[#101C2B] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-          </svg>
           <span>Konsultasi Kebutuhan Daya</span>
+          <svg class="w-4 h-4 text-[#101C2B] group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
         </a>
       </div>
 
@@ -115,11 +110,11 @@ const metrics = [
         {slides.map((_, i) => (
           <button
             type="button"
-            class="hero-dot p-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F5B82E] rounded-full transition-all cursor-pointer"
+            class="hero-dot p-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F5B82E] rounded-full cursor-pointer"
             data-index={i}
             aria-label={`Pindah ke Slide ${i + 1}`}
           >
-            <span class={`h-1.5 rounded-full block transition-all ${i === 0 ? 'w-8 bg-[#F5B82E]' : 'w-2 bg-slate-600 hover:bg-slate-400'}`}></span>
+            <span class={`h-1.5 rounded-full block transition-[width,background-color] duration-300 ${i === 0 ? 'w-8 bg-[#F5B82E]' : 'w-2 bg-slate-600 hover:bg-slate-400'}`}></span>
           </button>
         ))}
       </div>
@@ -131,7 +126,7 @@ const metrics = [
   <button
     type="button"
     id="hero-prev-btn"
-    class="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white border border-slate-700/60 backdrop-blur-sm transition hidden lg:block cursor-pointer"
+    class="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white border border-slate-700/60 transition-colors duration-200 hidden lg:block cursor-pointer"
     aria-label="Slide Sebelumnya"
   >
     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -141,7 +136,7 @@ const metrics = [
   <button
     type="button"
     id="hero-next-btn"
-    class="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white border border-slate-700/60 backdrop-blur-sm transition hidden lg:block cursor-pointer"
+    class="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white border border-slate-700/60 transition-colors duration-200 hidden lg:block cursor-pointer"
     aria-label="Slide Selanjutnya"
   >
     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -181,9 +176,9 @@ const metrics = [
         const bar = dot.querySelector('span');
         if (bar) {
           if (i === currentIndex) {
-            bar.className = 'h-1.5 rounded-full block transition-all w-8 bg-[#F5B82E]';
+            bar.className = 'h-1.5 rounded-full block transition-[width,background-color] duration-300 w-8 bg-[#F5B82E]';
           } else {
-            bar.className = 'h-1.5 rounded-full block transition-all w-2 bg-slate-600 hover:bg-slate-400';
+            bar.className = 'h-1.5 rounded-full block transition-[width,background-color] duration-300 w-2 bg-slate-600 hover:bg-slate-400';
           }
         }
       });
