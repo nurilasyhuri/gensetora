@@ -1,76 +1,257 @@
 ---
+const slides = [
+  {
+    image: "/images/hero-bg.webp",
+    alt: "Fasilitas Workshop Perakitan dan Load Bank Testing Gensetora",
+    caption: "Workshop Perakitan & Pengujian Beban"
+  },
+  {
+    image: "/images/pool-workshop.webp",
+    alt: "Staging Pool dan Kesiapan Unit Genset Diesel Industri Gensetora",
+    caption: "Pool Unit & Staging Industri"
+  },
+  {
+    image: "/images/engineer-team.webp",
+    alt: "Tim Teknisi Elektrikal dan Mekanikal Gensetora",
+    caption: "Dukungan Teknisi Bersertifikat"
+  },
+  {
+    image: "/images/machine-diesel.webp",
+    alt: "Unit Genset Diesel Tugas Berat Heavy Duty Gensetora",
+    caption: "Pembangkit Daya Tugas Berat"
+  }
+];
+
+const metrics = [
+  { value: "1 – 2.000", unit: "kVA", label: "Rentang Kapasitas Lengkap" },
+  { value: "< 15", unit: "Menit", label: "Respon Cepat Tim Teknis" },
+  { value: "100%", unit: "Asli", label: "Garansi Mesin & Komponen" },
+  { value: "ISO 8528", unit: "", label: "Standar Uji Beban Pabrik" }
+];
 ---
 
-<section class="relative w-full min-h-[520px] lg:min-h-[640px] bg-[#101C2B] text-white overflow-hidden flex flex-col justify-between py-12 sm:py-16 lg:py-24" aria-label="Gensetora Power Showcase">
-  <!-- Background Image with Gradient Overlay -->
-  <div class="absolute inset-0 z-0 pointer-events-none">
-    <div class="absolute inset-0 opacity-100 z-10">
-      <img
-        src="/images/hero-bg.webp"
-        alt="Gensetora — Complete Generator and Power Solutions Indonesia"
-        class="w-full h-full object-cover object-center filter brightness-[0.38] contrast-[1.2]"
-        loading="eager"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0B131E]/95 via-[#101C2B]/80 to-transparent"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#101C2B] via-transparent to-[#0B131E]/60"></div>
-    </div>
+<section
+  id="hero-slider"
+  class="relative w-full min-h-[580px] lg:min-h-[660px] bg-[#0B131E] text-white overflow-hidden flex flex-col justify-between py-12 sm:py-16 lg:py-20 select-none"
+  aria-label="Gensetora Power Solutions Showcase"
+>
+  <!-- Background Image Slideshow Container -->
+  <div class="absolute inset-0 z-0 pointer-events-none" id="hero-slides-container">
+    {slides.map((slide, index) => (
+      <div
+        class={`hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        data-slide-index={index}
+      >
+        <img
+          src={slide.image}
+          alt={slide.alt}
+          class="w-full h-full object-cover object-center filter brightness-[0.32] contrast-[1.15]"
+          loading={index === 0 ? "eager" : "lazy"}
+          width="1920"
+          height="1080"
+        />
+        <!-- Gradients for pristine contrast (mscscaffolding standard) -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0B131E]/95 via-[#101C2B]/85 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0B131E] via-transparent to-[#0B131E]/70"></div>
+      </div>
+    ))}
   </div>
-
-  <!-- Decorative Top Ambient Glow -->
-  <div class="absolute top-1/4 left-10 w-96 h-96 bg-[#F5B82E]/10 rounded-full blur-3xl pointer-events-none z-0"></div>
 
   <!-- Main Hero Content -->
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16 sm:pt-20">
-    <div class="max-w-3xl space-y-6 sm:space-y-8">
+  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-12 sm:pt-16 my-auto">
+    <div class="max-w-3xl space-y-4 sm:space-y-6">
       
-      <!-- Core Headline -->
-      <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
-        Solusi Genset Andal untuk Rumah, Bisnis & Kebutuhan Industri
-      </h1>
+      <!-- Clean Eyebrow (No slop badge box, clean typography) -->
+      <div>
+        <span class="text-xs uppercase tracking-widest text-[#F5B82E] font-bold block">
+          Pusat Solusi Pembangkit Daya Terpadu
+        </span>
+      </div>
 
-      <!-- Supporting Paragraph -->
-      <p class="text-sm sm:text-base lg:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
-        Pusat genset terpadu kapasitas 1 kVA – 2.000 kVA di seluruh Indonesia. Melayani penjualan unit baru bergaransi, sewa/rental harian hingga tahunan, servis overhaul mesin, dan instalasi panel ATS otomatis.
+      <!-- Main Headline + Highlight Accent Line -->
+      <div class="space-y-2">
+        <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
+          Solusi Genset Andal untuk Kebutuhan Bisnis &amp; Industri
+        </h1>
+        <div class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#F5B82E] tracking-tight">
+          Kapasitas 1 kVA – 2.000 kVA Berstandar Resmi
+        </div>
+      </div>
+
+      <!-- Clean supporting copy -->
+      <p class="text-sm sm:text-base lg:text-lg text-slate-200 font-normal leading-relaxed max-w-2xl">
+        Penyediaan unit genset baru bergaransi resmi, perakitan panel otomatis ATS-AMF, dan pemeliharaan berkala didukung tim rekayasa teknis berpengalaman di seluruh Indonesia.
       </p>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+      <!-- EXACTLY 1 BUTTON (Single Clean Important Action) -->
+      <div class="pt-2">
         <a
-          href="#kalkulator"
-          class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-[#F5B82E] hover:bg-[#E5A71D] text-[#101C2B] font-bold text-xs sm:text-sm tracking-wide uppercase shadow-lg shadow-amber-950/20 active:scale-95 transition-all"
+          href="#kontak"
+          id="btn_hero_cta"
+          class="inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl bg-[#F5B82E] hover:bg-[#E5A71D] active:scale-95 text-[#101C2B] font-bold text-xs sm:text-sm tracking-wide uppercase shadow-xl shadow-amber-950/40 transition-all group"
         >
-          Hitung Kebutuhan Daya (Kalkulator)
-        </a>
-        <a
-          href="#katalog"
-          class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-slate-600 hover:border-[#F5B82E] hover:text-[#F5B82E] text-slate-200 text-xs sm:text-sm font-semibold tracking-wide uppercase transition-colors"
-        >
-          Lihat Katalog Genset
+          <svg class="w-4 h-4 text-[#101C2B] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+          <span>Konsultasi Kebutuhan Daya</span>
         </a>
       </div>
 
     </div>
   </div>
 
-  <!-- Bottom Metric Bar (Mechline Industrial Strip Pattern) -->
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-12 sm:mt-16">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-slate-800/80">
-      <div class="space-y-1">
-        <div class="font-heading text-xl sm:text-2xl font-black text-[#F5B82E]">1 – 2.000 kVA</div>
-        <div class="text-xs text-slate-400 font-medium">Rentang Kapasitas Lengkap</div>
+  <!-- Bottom Metric Bar + Slider Pagination Controls -->
+  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10 sm:mt-14">
+    <div class="pt-5 border-t border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+      
+      <!-- Metrics Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 lg:gap-12">
+        {metrics.map((m) => (
+          <div>
+            <div class="flex items-baseline gap-1">
+              <span class="font-heading text-xl sm:text-3xl font-black text-white">{m.value}</span>
+              {m.unit && <span class="text-xs font-bold text-[#F5B82E]">{m.unit}</span>}
+            </div>
+            <div class="text-xs text-slate-300 font-medium mt-0.5">{m.label}</div>
+          </div>
+        ))}
       </div>
-      <div class="space-y-1">
-        <div class="font-heading text-xl sm:text-2xl font-black text-white">&lt; 15 Menit</div>
-        <div class="text-xs text-slate-400 font-medium">Respon Cepat Tim Teknis</div>
+
+      <!-- Slide Indicator Dots -->
+      <div class="flex items-center gap-2 self-start sm:self-end pb-1" aria-label="Slideshow Controls">
+        {slides.map((_, i) => (
+          <button
+            type="button"
+            class="hero-dot p-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F5B82E] rounded-full transition-all cursor-pointer"
+            data-index={i}
+            aria-label={`Pindah ke Slide ${i + 1}`}
+          >
+            <span class={`h-1.5 rounded-full block transition-all ${i === 0 ? 'w-8 bg-[#F5B82E]' : 'w-2 bg-slate-600 hover:bg-slate-400'}`}></span>
+          </button>
+        ))}
       </div>
-      <div class="space-y-1">
-        <div class="font-heading text-xl sm:text-2xl font-black text-white">100% Asli</div>
-        <div class="text-xs text-slate-400 font-medium">Garansi Mesin &amp; Suku Cadang</div>
-      </div>
-      <div class="space-y-1">
-        <div class="font-heading text-xl sm:text-2xl font-black text-[#F5B82E]">500+ Unit</div>
-        <div class="text-xs text-slate-400 font-medium">Terpasang &amp; Armada Rental</div>
-      </div>
+
     </div>
   </div>
+
+  <!-- Desktop Arrow Chevrons (Previous / Next) -->
+  <button
+    type="button"
+    id="hero-prev-btn"
+    class="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white border border-slate-700/60 backdrop-blur-sm transition hidden lg:block cursor-pointer"
+    aria-label="Slide Sebelumnya"
+  >
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+  <button
+    type="button"
+    id="hero-next-btn"
+    class="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white border border-slate-700/60 backdrop-blur-sm transition hidden lg:block cursor-pointer"
+    aria-label="Slide Selanjutnya"
+  >
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
 </section>
+
+<script>
+  function initHeroSlider() {
+    const slides = document.querySelectorAll<HTMLElement>('.hero-slide');
+    const dots = document.querySelectorAll<HTMLElement>('.hero-dot');
+    const prevBtn = document.getElementById('hero-prev-btn');
+    const nextBtn = document.getElementById('hero-next-btn');
+    const container = document.getElementById('hero-slider');
+
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let timer: number | null = null;
+    const total = slides.length;
+    const intervalMs = 5000;
+
+    function showSlide(index: number) {
+      currentIndex = (index + total) % total;
+      slides.forEach((slide, i) => {
+        if (i === currentIndex) {
+          slide.classList.remove('opacity-0', 'z-0');
+          slide.classList.add('opacity-100', 'z-10');
+        } else {
+          slide.classList.remove('opacity-100', 'z-10');
+          slide.classList.add('opacity-0', 'z-0');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        const bar = dot.querySelector('span');
+        if (bar) {
+          if (i === currentIndex) {
+            bar.className = 'h-1.5 rounded-full block transition-all w-8 bg-[#F5B82E]';
+          } else {
+            bar.className = 'h-1.5 rounded-full block transition-all w-2 bg-slate-600 hover:bg-slate-400';
+          }
+        }
+      });
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    function startTimer() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      stopTimer();
+      timer = window.setInterval(nextSlide, intervalMs);
+    }
+
+    function stopTimer() {
+      if (timer !== null) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.getAttribute('data-index') || '0', 10);
+        showSlide(idx);
+        startTimer();
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        startTimer();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        startTimer();
+      });
+    }
+
+    if (container) {
+      container.addEventListener('mouseenter', stopTimer);
+      container.addEventListener('mouseleave', startTimer);
+      container.addEventListener('touchstart', stopTimer, { passive: true });
+      container.addEventListener('touchend', startTimer, { passive: true });
+    }
+
+    startTimer();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroSlider);
+  } else {
+    initHeroSlider();
+  }
+</script>
