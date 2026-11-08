@@ -12,17 +12,18 @@ Won't do:
 ## Tokens
 
 ### Colour
-- Primary / Industrial Navy: `#101C2B`
-- Navy Dark: `#0B131E`
-- Navy Surface: `#162538`
+- Primary / Industrial Hijau Tosca: `#009498` (Signature Genset Tosca, hover `#007D81`)
+- Deep Tosca Surface: `#0A4347` (Dark headers, hero overlay, cards)
+- Deep Base Tosca: `#063336` (Trust strip, hero base, footer top)
+- Tosca Card Surface: `#0D4E53` (Card dark surface)
+- Border Dark Tosca: `#135D62`
 - Accent Power Yellow: `#F5B82E`
 - Accent Yellow Hover: `#E5A71D`
 - Clean White: `#FFFFFF`
-- Mist Gray Background: `#F3F6FA`
+- Mist Gray Background: `#EFF8F8` (Crisp light tosca tint)
 - Neutral Slate Text: `#64748B`
 - Dark Text: `#0F172A`
 - Border: `#E2E8F0`
-- Border Dark: `rgba(255, 255, 255, 0.1)`
 
 ### Type
 - Heading: Manrope, Poppins, system-ui, sans-serif

@@ -11,36 +11,29 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
 >
   <Header />
 
-  <main class="pt-20 sm:pt-24 bg-[#F3F6FA]">
+  <main class="pt-20 sm:pt-24 bg-[#EFF8F8]">
     
     <!-- Hero / Header Banner -->
-    <section class="bg-[#101C2B] text-white py-14 sm:py-20 border-b border-slate-800">
+    <section class="bg-[#0A4347] text-white pt-8 pb-10 sm:pt-12 sm:pb-14 border-b border-[#135D62]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Breadcrumbs -->
-        <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6 uppercase tracking-wider font-semibold">
-          <a href="/" class="hover:text-[#F5B82E] transition-colors">Beranda</a>
+        <nav class="flex items-center gap-2 text-xs text-slate-400 mb-4 uppercase tracking-wider font-semibold">
+          <a href="/" style="min-height: 32px; display: inline-flex; align-items: center;" class="hover:text-[#F5B82E] transition-colors">Beranda</a>
           <span>/</span>
           <span class="text-[#F5B82E]">Katalog Produk</span>
-          <span>/</span>
-          <span class="text-white">Lini Unit Gensetora</span>
         </nav>
 
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-          <div class="max-w-3xl space-y-3">
-            <div>
-              <span class="text-xs uppercase tracking-widest text-[#F5B82E] font-bold block">
-                Katalog Resmi Pabrik
-              </span>
-            </div>
-            <h1 class="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight">
-              Katalog Pembangkit Listrik &amp; Genset
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div class="max-w-2xl space-y-2">
+            <span class="text-xs uppercase tracking-widest text-[#F5B82E] font-bold block">
+              Katalog Resmi
+            </span>
+            <h1 class="font-heading text-2xl sm:text-4xl font-black text-white tracking-normal">
+              Katalog Genset Industri &amp; Portabel
             </h1>
-            <div class="text-lg sm:text-2xl font-extrabold text-[#F5B82E] tracking-tight">
-              Lini Industri PRIMTECH &amp; Seri Portable V-GEN
-            </div>
-            <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Jajaran unit genset resmi bergaransi: Seri diesel industri tugas berat <strong>PRIMTECH</strong> kapasitas 20 kVA hingga 500 kVA (Common Rail System) serta genset bensin portabel <strong>V-GEN</strong> kapasitas 2.200 W hingga 8.500 W (1-Phase &amp; 3-Phase).
+            <p class="text-xs sm:text-sm text-slate-300">
+              PRIMTECH Diesel 20–500 kVA dan V-GEN Portabel 2.200–8.500 W dengan garansi dan uji beban 100%.
             </p>
           </div>
 
@@ -48,12 +41,10 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
           <div class="shrink-0">
             <a
               href="#primtech"
-              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#F5B82E] hover:bg-[#E5A71D] text-[#101C2B] font-bold text-xs uppercase tracking-wider shadow-md transition-all"
+              style="min-height: 42px; display: inline-flex; align-items: center;"
+              class="px-5 py-2.5 rounded-xl bg-[#F5B82E] hover:bg-[#E5A71D] text-[#0A4347] font-bold text-xs uppercase tracking-wider shadow-md transition-colors"
             >
-              <span>Jelajahi Produk</span>
-              <svg class="w-4 h-4 text-[#101C2B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
+              <span>Pilih Unit &darr;</span>
             </a>
           </div>
         </div>
@@ -70,19 +61,22 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
           <div class="flex flex-wrap items-center gap-2">
             <a
               href="/produk/"
-              class="px-4 py-2 rounded-lg bg-[#101C2B] text-white text-xs font-bold uppercase tracking-wider shadow-xs"
+              style="min-height: 40px; display: inline-flex; align-items: center;"
+              class="px-4 py-2 rounded-lg bg-[#009498] text-white text-xs font-bold uppercase tracking-wider shadow-xs"
             >
               Semua Produk ({allProducts.length})
             </a>
             <a
               href="#primtech"
-              class="px-4 py-2 rounded-lg bg-white border border-slate-200 hover:border-[#101C2B] text-slate-700 text-xs font-semibold uppercase tracking-wider transition-colors"
+              style="min-height: 40px; display: inline-flex; align-items: center;"
+              class="px-4 py-2 rounded-lg bg-white border border-slate-200 hover:border-[#009498] text-slate-700 text-xs font-semibold uppercase tracking-wider transition-colors"
             >
               PRIMTECH Diesel ({primtechProducts.length})
             </a>
             <a
               href="#vgen"
-              class="px-4 py-2 rounded-lg bg-white border border-slate-200 hover:border-[#101C2B] text-slate-700 text-xs font-semibold uppercase tracking-wider transition-colors"
+              style="min-height: 40px; display: inline-flex; align-items: center;"
+              class="px-4 py-2 rounded-lg bg-white border border-slate-200 hover:border-[#009498] text-slate-700 text-xs font-semibold uppercase tracking-wider transition-colors"
             >
               V-GEN Portable ({vgenProducts.length})
             </a>
@@ -98,10 +92,10 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
         <!-- Section 1: PRIMTECH Prime Series Diesel -->
         <div id="primtech" class="mb-16">
           <div class="mb-8">
-            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-slate-900 text-[#F5B82E] text-[11px] font-bold uppercase tracking-wider mb-2">
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#0A4347] text-[#F5B82E] text-xs font-bold uppercase tracking-wider mb-2">
               PRIMTECH Prime Series
             </div>
-            <h2 class="font-heading text-2xl sm:text-3xl font-black text-[#101C2B]">
+            <h2 class="font-heading text-2xl sm:text-3xl font-black text-[#0A4347] tracking-normal">
               Genset Diesel Industri PRIMTECH (20 – 500 kVA)
             </h2>
             <p class="text-xs sm:text-sm text-slate-600 mt-1">
@@ -111,17 +105,17 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {primtechProducts.map((p) => (
-              <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#F5B82E] transition-all flex flex-col justify-between group">
+              <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#F5B82E] transition-[box-shadow,border-color] duration-200 flex flex-col justify-between group">
                 <div>
                   <div class="p-6 bg-slate-50/70 border-b border-slate-100 relative">
                     {p.badge && (
                       <div class="absolute top-3 left-3 z-10">
-                        <span class="px-2.5 py-0.5 rounded-full bg-[#101C2B] text-[#F5B82E] text-[10px] font-bold uppercase tracking-wider">
+                        <span class="px-2.5 py-0.5 rounded-full bg-[#0A4347] text-[#F5B82E] text-xs font-bold uppercase tracking-wider">
                           {p.badge}
                         </span>
                       </div>
                     )}
-                    <a href={`/produk/${p.slug}/`} class="block aspect-square max-w-[220px] mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                    <div class="block aspect-square max-w-[220px] mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300">
                       <img
                         src={p.image}
                         alt={p.name}
@@ -130,15 +124,15 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
                         width="350"
                         height="350"
                       />
-                    </a>
+                    </div>
                   </div>
 
                   <div class="p-5 space-y-3">
                     <div>
-                      <span class="text-[10px] font-bold uppercase tracking-wider text-[#F5B82E] block">
+                      <span class="text-xs font-bold uppercase tracking-wider text-[#F5B82E] block">
                         {p.model}
                       </span>
-                      <h3 class="font-heading font-extrabold text-base text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-0.5">
+                      <h3 class="font-heading font-extrabold text-base text-[#0A4347] group-hover:text-[#009498] transition-colors leading-snug mt-0.5">
                         <a href={`/produk/${p.slug}/`}>
                           {p.name}
                         </a>
@@ -147,11 +141,11 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
 
                     <div class="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-100">
                       <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
-                        <span class="text-[9px] text-slate-400 uppercase block font-semibold">Prime Power</span>
-                        <strong class="text-[#101C2B] font-extrabold text-xs">{p.ratedOutput.split('(')[0]}</strong>
+                        <span class="text-xs text-slate-400 uppercase block font-semibold">Prime Power</span>
+                        <strong class="text-[#0A4347] font-extrabold text-xs">{p.ratedOutput.split('(')[0]}</strong>
                       </div>
                       <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
-                        <span class="text-[9px] text-slate-400 uppercase block font-semibold">Standby Power</span>
+                        <span class="text-xs text-slate-400 uppercase block font-semibold">Standby Power</span>
                         <strong class="text-slate-800 font-bold text-xs">{p.maxOutput.split('(')[0]}</strong>
                       </div>
                     </div>
@@ -166,7 +160,7 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
                 <div class="p-5 pt-0">
                   <a
                     href={`/produk/${p.slug}/`}
-                    class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
+                    class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#009498] hover:bg-[#007D81] text-white text-xs font-bold tracking-wider uppercase transition-colors"
                   >
                     <span>Lihat Spesifikasi &rarr;</span>
                   </a>
@@ -179,10 +173,10 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
         <!-- Section 2: V-GEN Portable Open Type -->
         <div id="vgen" class="pt-8 border-t border-slate-200">
           <div class="mb-8">
-            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-slate-900 text-[#F5B82E] text-[11px] font-bold uppercase tracking-wider mb-2">
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#0A4347] text-[#F5B82E] text-xs font-bold uppercase tracking-wider mb-2">
               V-GEN Portable Open Type
             </div>
-            <h2 class="font-heading text-2xl sm:text-3xl font-black text-[#101C2B]">
+            <h2 class="font-heading text-2xl sm:text-3xl font-black text-[#0A4347] tracking-normal">
               Genset Bensin Portable V-GEN (2.200 – 8.500 W)
             </h2>
             <p class="text-xs sm:text-sm text-slate-600 mt-1">
@@ -192,23 +186,23 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {vgenProducts.map((p) => (
-              <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#F5B82E] transition-all flex flex-col justify-between group">
+              <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#F5B82E] transition-[box-shadow,border-color] duration-200 flex flex-col justify-between group">
                 <div>
                   <div class="p-6 bg-slate-50/70 border-b border-slate-100 relative">
                     {p.badge && (
                       <div class="absolute top-4 left-4 z-10">
-                        <span class="px-3 py-1 rounded-full bg-[#101C2B] text-[#F5B82E] text-[11px] font-bold uppercase tracking-wider">
+                        <span class="px-3 py-1 rounded-full bg-[#0A4347] text-[#F5B82E] text-xs font-bold uppercase tracking-wider">
                           {p.badge}
                         </span>
                       </div>
                     )}
                     <div class="absolute top-4 right-4 z-10">
-                      <span class="px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700 text-[11px] font-bold">
+                      <span class="px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700 text-xs font-bold">
                         {p.voltage}
                       </span>
                     </div>
 
-                    <a href={`/produk/${p.slug}/`} class="block aspect-square max-w-[260px] mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                    <div class="block aspect-square max-w-[260px] mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300">
                       <img
                         src={p.image}
                         alt={p.name}
@@ -217,15 +211,15 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
                         width="380"
                         height="380"
                       />
-                    </a>
+                    </div>
                   </div>
 
                   <div class="p-6 space-y-3">
                     <div>
-                      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                      <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">
                         {p.model}
                       </span>
-                      <h3 class="font-heading font-extrabold text-xl text-[#101C2B] group-hover:text-[#E5A71D] transition-colors leading-snug mt-0.5">
+                      <h3 class="font-heading font-extrabold text-xl text-[#0A4347] group-hover:text-[#009498] transition-colors leading-snug mt-0.5">
                         <a href={`/produk/${p.slug}/`}>
                           {p.name}
                         </a>
@@ -234,11 +228,11 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
 
                     <div class="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-100">
                       <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                        <span class="text-[9px] text-slate-400 uppercase block font-semibold">Max Output</span>
-                        <strong class="text-slate-900 font-extrabold text-xs text-[#101C2B]">{p.maxOutput}</strong>
+                        <span class="text-xs text-slate-400 uppercase block font-semibold">Max Output</span>
+                        <strong class="text-slate-900 font-extrabold text-xs text-[#0A4347]">{p.maxOutput}</strong>
                       </div>
                       <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                        <span class="text-[9px] text-slate-400 uppercase block font-semibold">Rated Output</span>
+                        <span class="text-xs text-slate-400 uppercase block font-semibold">Rated Output</span>
                         <strong class="text-slate-800 font-bold text-xs">{p.ratedOutput}</strong>
                       </div>
                     </div>
@@ -253,7 +247,7 @@ import { allProducts, primtechProducts, vgenProducts } from '../../data/products
                 <div class="p-6 pt-0">
                   <a
                     href={`/produk/${p.slug}/`}
-                    class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-lg bg-[#101C2B] hover:bg-[#F5B82E] hover:text-[#101C2B] text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-xs"
+                    class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-lg bg-[#009498] hover:bg-[#007D81] text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-xs"
                   >
                     <span>Lihat Spesifikasi &rarr;</span>
                   </a>

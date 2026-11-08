@@ -1,6 +1,4 @@
 ---
-import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
-
 interface Props {
   title?: string;
   description?: string;
@@ -55,10 +53,30 @@ const {
           animation: none;
         }
       }
+      /* Prevent prose table overflow on mobile viewports */
+      .overflow-x-auto {
+        overflow-x: auto !important;
+        max-width: 100% !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      .prose {
+        max-width: 100%;
+      }
+      .prose pre {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+      }
+      /* Ensure interactive links meet WCAG target size minimum >= 24px */
+      nav a {
+        min-height: 36px;
+        display: inline-flex;
+        align-items: center;
+      }
     </style>
   </head>
-  <body class="bg-white text-slate-900 antialiased selection:bg-[#F5B82E] selection:text-[#101C2B] overflow-x-hidden font-sans">
+  <body class="bg-white text-slate-900 antialiased selection:bg-[#F5B82E] selection:text-[#0A4347] overflow-x-hidden font-sans">
     <slot />
-    <FloatingWhatsApp phone="6285183005070" message="Halo Gensetora, saya ingin konsultasi kebutuhan genset untuk proyek/bisnis saya." />
   </body>
 </html>

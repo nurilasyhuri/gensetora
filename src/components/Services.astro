@@ -61,10 +61,10 @@ const steps = [
     
     <!-- Section Header -->
     <div class="max-w-3xl mb-16">
-      <div class="text-xs font-bold uppercase tracking-wider text-[#101C2B] bg-[#F5B82E] inline-block px-3 py-1 rounded-md mb-3">
+      <div class="text-xs font-bold uppercase tracking-wider text-[#0A4347] bg-[#F5B82E] inline-block px-3 py-1 rounded-md mb-3">
         Layanan Spesialis
       </div>
-      <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-[#101C2B] tracking-tight">
+      <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-[#0A4347] tracking-normal">
         Layanan Lengkap Solusi Pembangkit Daya
       </h2>
       <p class="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
@@ -75,24 +75,24 @@ const steps = [
     <!-- 5 Core Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {services.map((srv, idx) => (
-        <div class={`p-7 rounded-2xl border transition-all duration-300 flex flex-col justify-between group ${
+        <div class={`p-7 rounded-2xl border transition-[background-color,border-color,box-shadow] duration-200 flex flex-col justify-between group ${
           idx === 0 
-            ? 'bg-[#101C2B] text-white border-slate-800 shadow-md md:col-span-2 lg:col-span-1' 
-            : 'bg-slate-50 border-slate-200/90 hover:border-[#F5B82E] hover:bg-white hover:shadow-md text-slate-900'
+            ? 'bg-[#0A4347] text-white border-[#074549] shadow-md md:col-span-2 lg:col-span-1' 
+            : 'bg-slate-50 border-slate-200/90 hover:border-[#009498] hover:bg-white hover:shadow-md text-slate-900'
         }`}>
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class={`text-2xl font-black font-heading ${idx === 0 ? 'text-[#F5B82E]' : 'text-slate-400 group-hover:text-[#F5B82E]'}`}>
+              <span class={`text-2xl font-black font-heading ${idx === 0 ? 'text-[#F5B82E]' : 'text-slate-600 group-hover:text-[#009498]'}`}>
                 {srv.num}
               </span>
-              <span class={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ${
-                idx === 0 ? 'bg-slate-800 text-[#F5B82E]' : 'bg-white border border-slate-200 text-slate-600 group-hover:border-[#F5B82E]'
+              <span class={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ${
+                idx === 0 ? 'bg-[#063336] text-[#F5B82E]' : 'bg-white border border-slate-200 text-slate-600 group-hover:border-[#009498]'
               }`}>
                 {srv.tag}
               </span>
             </div>
 
-            <h3 class={`font-heading font-extrabold text-lg sm:text-xl leading-snug ${idx === 0 ? 'text-white' : 'text-[#101C2B]'}`}>
+            <h3 class={`font-heading font-extrabold text-lg sm:text-xl leading-snug ${idx === 0 ? 'text-white' : 'text-[#0A4347]'}`}>
               {srv.title}
             </h3>
 
@@ -103,15 +103,13 @@ const steps = [
 
           <div class="pt-6 mt-4 border-t border-slate-200/50">
             <a
-              href={`https://wa.me/6285183005070?text=${encodeURIComponent(`Halo Gensetora, saya ingin konsultasi mengenai layanan ${srv.title} untuk kebutuhan fasilitas saya.`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider group-hover:translate-x-1 transition-all ${
-                idx === 0 ? 'text-[#F5B82E] hover:underline' : 'text-[#101C2B] group-hover:text-[#E5A71D]'
+              href="#kontak"
+              class={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                idx === 0 ? 'text-[#F5B82E] hover:underline' : 'text-[#009498] group-hover:text-[#095257]'
               }`}
             >
-              <span>Konsultasi Layanan Ini</span>
-              <span>→</span>
+              <span>Pelajari Layanan</span>
+              <span>&rarr;</span>
             </a>
           </div>
         </div>
@@ -121,7 +119,7 @@ const steps = [
     <!-- 4-Step Process Strip -->
     <div class="mt-20 pt-16 border-t border-slate-200">
       <div class="max-w-2xl mb-10">
-        <h3 class="font-heading text-xl sm:text-2xl font-extrabold text-[#101C2B] tracking-tight">
+        <h3 class="font-heading text-xl sm:text-2xl font-extrabold text-[#0A4347] tracking-normal">
           Alur Kerja &amp; Eksekusi Berstandar K3
         </h3>
         <p class="text-xs sm:text-sm text-slate-600 mt-1">
@@ -131,12 +129,12 @@ const steps = [
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {steps.map((st) => (
-          <div class="p-6 rounded-2xl bg-[#F3F6FA] border border-slate-200 space-y-2.5">
+          <div class="p-6 rounded-2xl bg-[#EFF8F8] border border-slate-200 space-y-2.5">
             <div class="flex items-center justify-between">
-              <span class="text-xl font-black text-[#F5B82E] font-heading">{st.num}</span>
-              <span class="w-2 h-2 rounded-full bg-[#101C2B]"></span>
+              <span class="text-xl font-black text-[#0A4347] font-heading">{st.num}</span>
+              <span class="w-2 h-2 rounded-full bg-[#009498]"></span>
             </div>
-            <h4 class="font-heading font-bold text-sm sm:text-base text-[#101C2B]">{st.title}</h4>
+            <h4 class="font-heading font-bold text-sm sm:text-base text-[#0A4347]">{st.title}</h4>
             <p class="text-xs text-slate-600 leading-relaxed">{st.desc}</p>
           </div>
         ))}

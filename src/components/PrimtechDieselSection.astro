@@ -2,13 +2,13 @@
 import { primtechProducts } from '../data/products';
 ---
 
-<section id="primtech-diesel" class="py-20 sm:py-24 bg-[#101C2B] text-white border-b border-slate-800">
+<section id="primtech-diesel" class="py-20 sm:py-24 bg-[#0A4347] text-white border-b border-[#135D62]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Header Block -->
     <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 sm:mb-16 gap-6">
       <div class="max-w-3xl">
-        <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-normal">
           Lini Genset Diesel Industri PRIMTECH (20 – 500 kVA)
         </h2>
         <p class="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed">
@@ -23,9 +23,9 @@ import { primtechProducts } from '../data/products';
           target="_blank"
           rel="noopener noreferrer"
           download="Katalog-Genset-Diesel-PRIMTECH-Prime-Series.pdf"
-          class="inline-flex items-center gap-2.5 px-5 py-3 rounded-lg bg-[#F5B82E] hover:bg-[#E5A71D] text-[#101C2B] font-bold text-xs uppercase tracking-wider shadow-md transition-all group"
+          class="inline-flex items-center gap-2.5 px-5 py-3 rounded-lg bg-[#F5B82E] hover:bg-[#E5A71D] text-[#0A4347] font-bold text-xs uppercase tracking-wider shadow-md transition-colors duration-200 group"
         >
-          <svg class="w-4 h-4 text-[#101C2B] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-4 h-4 text-[#0A4347] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
           <span>Unduh Katalog PRIMTECH PDF</span>
@@ -33,7 +33,7 @@ import { primtechProducts } from '../data/products';
 
         <a
           href="/produk/"
-          class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-slate-700 hover:border-slate-400 text-slate-300 hover:text-white text-xs font-semibold tracking-wide uppercase transition-colors"
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#0A9195] hover:border-slate-300 text-slate-200 hover:text-white text-xs font-semibold tracking-wide uppercase transition-colors"
         >
           <span>Lihat Semua Produk &rarr;</span>
         </a>
@@ -43,26 +43,26 @@ import { primtechProducts } from '../data/products';
     <!-- Product Cards Grid (4 Columns) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {primtechProducts.map((p) => (
-        <div class="bg-[#162538] rounded-2xl border border-slate-700/80 overflow-hidden shadow-lg hover:border-[#F5B82E] transition-all flex flex-col justify-between group">
+        <div class="bg-[#063336] rounded-2xl border border-[#0A9195] overflow-hidden shadow-lg hover:border-[#F5B82E] transition-[border-color,box-shadow] duration-200 flex flex-col justify-between group">
           
           <div>
             <!-- Top Visual Area -->
-            <div class="p-6 bg-[#0B131E]/60 border-b border-slate-800 relative">
+            <div class="p-6 bg-[#0A4347]/70 border-b border-[#135D62] relative">
               {p.badge && (
                 <div class="absolute top-3 left-3 z-10">
-                  <span class="px-2.5 py-1 rounded-full bg-[#101C2B] border border-[#F5B82E]/40 text-[#F5B82E] text-[10px] font-bold tracking-wider uppercase">
+                  <span class="px-2.5 py-1 rounded-full bg-[#009498] text-white text-xs font-bold tracking-wider uppercase shadow-xs">
                     {p.badge}
                   </span>
                 </div>
               )}
               <div class="absolute top-3 right-3 z-10">
-                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 text-[10px] font-semibold">
+                <span class="px-2.5 py-0.5 rounded bg-[#0A4347] border border-[#0A9195] text-slate-300 text-xs font-semibold">
                   3-Phase 400V
                 </span>
               </div>
 
               <!-- Product Image -->
-              <a href={`/produk/${p.slug}/`} class="block aspect-square max-w-[240px] mx-auto overflow-hidden relative group-hover:scale-105 transition-transform duration-300">
+              <div class="block aspect-square max-w-[240px] mx-auto overflow-hidden relative group-hover:scale-105 transition-transform duration-300">
                 <img
                   src={p.image}
                   alt={p.name}
@@ -71,13 +71,13 @@ import { primtechProducts } from '../data/products';
                   width="400"
                   height="400"
                 />
-              </a>
+              </div>
             </div>
 
             <!-- Content Area -->
             <div class="p-5 space-y-3">
               <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-[#F5B82E] block">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#F5B82E] block">
                   {p.model}
                 </span>
                 <h3 class="font-heading font-extrabold text-base text-white group-hover:text-[#F5B82E] transition-colors leading-snug mt-0.5">
@@ -88,29 +88,29 @@ import { primtechProducts } from '../data/products';
               </div>
 
               <!-- Key Specs Highlight -->
-              <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800 text-xs">
-                <div class="bg-[#0B131E] p-2 rounded-lg border border-slate-800">
-                  <span class="text-[9px] text-slate-400 uppercase tracking-wider block font-medium">Prime Power</span>
+              <div class="grid grid-cols-2 gap-2 pt-2 border-t border-[#135D62] text-xs">
+                <div class="bg-[#0A4347] p-2 rounded-lg border border-[#135D62]">
+                  <span class="text-xs text-slate-200 uppercase tracking-wider block font-semibold">Prime Power</span>
                   <strong class="text-[#F5B82E] font-black text-xs">{p.ratedOutput.split('(')[0]}</strong>
                 </div>
-                <div class="bg-[#0B131E] p-2 rounded-lg border border-slate-800">
-                  <span class="text-[9px] text-slate-400 uppercase tracking-wider block font-medium">Standby Power</span>
+                <div class="bg-[#0A4347] p-2 rounded-lg border border-[#135D62]">
+                  <span class="text-xs text-slate-200 uppercase tracking-wider block font-semibold">Standby Power</span>
                   <strong class="text-white font-bold text-xs">{p.maxOutput.split('(')[0]}</strong>
                 </div>
               </div>
 
-              <div class="pt-1.5 border-t border-slate-800 text-xs flex justify-between text-slate-400">
+              <div class="pt-1.5 border-t border-[#135D62] text-xs flex justify-between text-slate-300">
                 <span>Mesin:</span>
-                <strong class="text-slate-200 truncate max-w-[150px]">{p.engine?.split('(')[0]}</strong>
+                <strong class="text-slate-100 truncate max-w-[150px]">{p.engine?.split('(')[0]}</strong>
               </div>
             </div>
           </div>
 
-          <!-- Bottom Card Buttons -->
-          <div class="p-5 pt-0 space-y-2">
+          <!-- Bottom Card Button (Single Clean Primary Action) -->
+          <div class="p-5 pt-0">
             <a
               href={`/produk/${p.slug}/`}
-              class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#0B131E] hover:bg-[#F5B82E] hover:text-[#101C2B] border border-slate-700 hover:border-[#F5B82E] text-white text-xs font-bold tracking-wider uppercase transition-colors"
+              class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#009498] hover:bg-[#007D81] text-white border border-[#12A8AD] text-xs font-bold tracking-wider uppercase transition-colors"
             >
               <span>Lihat Spesifikasi &rarr;</span>
             </a>

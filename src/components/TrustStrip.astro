@@ -1,32 +1,25 @@
 ---
-const brands = [
-  "CUMMINS POWER",
-  "PERKINS ENGINES UK",
-  "YANMAR DIESEL JAPAN",
-  "STAMFORD ALTERNATOR",
-  "DOOSAN INFRACORE",
-  "MITSUBISHI HEAVY",
-  "DEEP SEA ELECTRONICS (DSE)",
-  "ISUZU DIESEL",
-  "LEROY SOMER",
-  "SCHNEIDER ELECTRIC",
-  "VOLVO PENTA",
-  "DEUTZ GERMANY"
+const partnerBrands = [
+  "Cummins",
+  "Perkins UK",
+  "Yanmar",
+  "Stamford",
+  "Leroy Somer",
+  "Mitsubishi",
+  "Deep Sea DSE"
 ];
 ---
 
-<div class="relative w-full bg-[#0B131E] border-y border-slate-800 py-3.5 sm:py-4 overflow-hidden select-none" aria-label="Brand Mitra & Komponen Resmi">
-  <!-- Gradient Edge Masks -->
-  <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#0B131E] to-transparent z-10 pointer-events-none"></div>
-  <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#0B131E] to-transparent z-10 pointer-events-none"></div>
-
-  <!-- Marquee Container -->
-  <div class="flex items-center gap-10 whitespace-nowrap animate-ticker">
-    {brands.concat(brands).map((brand) => (
-      <div class="inline-flex items-center gap-4 text-xs sm:text-sm font-black tracking-widest text-slate-400/90 uppercase">
-        <span class="text-[#F5B82E]">⚡</span>
-        <span class="hover:text-white transition-colors">{brand}</span>
-      </div>
-    ))}
+<div class="w-full bg-[#063336] border-y border-[#135D62]/80 py-4 select-none" aria-label="Brand Komponen Resmi">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-6 text-xs font-bold tracking-widest text-slate-400 uppercase">
+      <span class="text-slate-300 font-semibold hidden lg:inline text-xs">Komponen Resmi:</span>
+      {partnerBrands.map((brand) => (
+        <div class="inline-flex items-center gap-2">
+          <span class="text-[#F5B82E]">⚡</span>
+          <span class="text-slate-300 hover:text-white transition-colors">{brand}</span>
+        </div>
+      ))}
+    </div>
   </div>
 </div>

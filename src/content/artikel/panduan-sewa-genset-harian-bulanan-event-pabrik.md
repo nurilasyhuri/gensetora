@@ -54,14 +54,14 @@ Sewa genset profesional tidak hanya menyewakan mesin. Paket terpadu Gensetora me
 
 GENSETORA melayani penjualan, rental, servis, dan kontrak maintenance genset ke seluruh koridor Indonesia:
 
-| Wilayah / Koridor | Cakupan Kawasan Proyek | Kesiapan Unit di Lapangan | Moda Mobilisasi Alat | Estimasi Lead Time | Status Layanan |
-|---|---|---|---|---|:---:|
-| **Koridor Jawa** | Surabaya, Jabodetabek, Bandung, Semarang, Malang Raya | Silent 10–500 kVA, Open 500–2.000 kVA | Truk Crane & Fuso Dedicated | 1 – 2 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Sumatera** | Medan, Pekanbaru, Palembang, Lampung | Unit Silent Trailer & Open Heavy | Truk Ekspedisi Lintas Sumatera | 3 – 5 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Kalimantan** | Balikpapan, Samarinda, Banjarmasin | Unit Silent Tambang & Pabrik | Kargo Kontainer Laut Surabaya | 5 – 8 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Sulawesi** | Makassar, Manado, Kendari, Palu | Unit Silent & Open Power Plant | Kapal Kontainer Cepat Pelni | 6 – 9 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Bali & Nusra** | Denpasar, Badung, Gianyar, Mataram Lombok | Unit Ultra-Silent Soundproof | Truk Penyeberangan Ferry | 2 – 4 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Maluku & Papua** | Jayapura, Timika, Sorong, Ambon | Modul Genset Tambang & Remote Site | Tol Laut Logistik Nasional | 8 – 14 Hari Kerja | Siap Kirim & Eksekusi |
+| Wilayah | Cakupan Kawasan | Kesiapan Unit |
+|---|---|---|
+| **Jawa** | Surabaya, Jabodetabek, Bandung, Semarang | Silent 10–500 kVA |
+| **Sumatera** | Medan, Pekanbaru, Palembang, Lampung | Silent Trailer & Open Heavy |
+| **Kalimantan** | Balikpapan, Samarinda, Banjarmasin | Silent Tambang & Pabrik |
+| **Sulawesi** | Makassar, Manado, Kendari, Palu | Open Type & Silent Plant |
+| **Bali & Nusra** | Denpasar, Badung, Mataram Lombok | Ultra-Silent Soundproof |
+| **Maluku & Papua** | Jayapura, Timika, Sorong, Ambon | Heavy Duty Mining Spec |
 
 ---
 
@@ -74,36 +74,3 @@ Tersedia dua opsi: Paket Sewa Bersih (All-in solar dari kami) atau Paket Lepas S
 Standar paket kami menyertakan kabel power tembaga 50 meter. Penambahan panjang kabel hingga 100-200 meter dapat disediakan sesuai kebutuhan tapak.
 
 ---
-
-## Solusi Rekayasa Pembangkit Daya Bersama GENSETORA
-
-Konsultasikan kapasitas kVA, kebutuhan panel ATS-AMF, dan pengadaan genset fasilitas Anda bersama tim ahli Gensetora:
-
-- **Hitung Perkiraan Daya & Kapasitas**: [Kalkulator Daya Genset](/kalkulator-genset)
-- **Lihat Katalog Unit**: [Katalog Lengkap Gensetora](/genset)
-- **Konsultasi WhatsApp**: [Hubungi Tim Estimator Ahli (0851-8300-5070)](https://wa.me/6285183005070?text=Halo%20Gensetora%2C%20saya%20ingin%20konsultasi%20kebutuhan%20genset%20untuk%20Panduan%20Lengkap%20Sewa%20Genset%20Harian%20%26%20Bulanan%3A%20Biaya%20Rental%2C%20Operator%2C%20BBM%20Solar%2C%20%26%20Kabel%20Power)
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-  {
-    "@type": "Question",
-    "name": "Apakah biaya sewa genset sudah termasuk bahan bakar solar?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Tersedia dua opsi: Paket Sewa Bersih (All-in solar dari kami) atau Paket Lepas Solar (BBM disediakan oleh penyewa sesuai pemakaian riil)."
-    }
-  },
-  {
-    "@type": "Question",
-    "name": "Berapa meter kabel power yang disediakan dalam paket sewa?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Standar paket kami menyertakan kabel power tembaga 50 meter. Penambahan panjang kabel hingga 100-200 meter dapat disediakan sesuai kebutuhan tapak."
-    }
-  }
-]
-}
-```

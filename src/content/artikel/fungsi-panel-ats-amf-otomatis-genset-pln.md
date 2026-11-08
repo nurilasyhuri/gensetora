@@ -53,14 +53,14 @@ Panel AMF berfungsi sebagai otak sensorik yang memonitor tegangan suplai PLN 24 
 
 GENSETORA melayani penjualan, rental, servis, dan kontrak maintenance genset ke seluruh koridor Indonesia:
 
-| Wilayah / Koridor | Cakupan Kawasan Proyek | Kesiapan Unit di Lapangan | Moda Mobilisasi Alat | Estimasi Lead Time | Status Layanan |
-|---|---|---|---|---|:---:|
-| **Koridor Jawa** | Surabaya, Jabodetabek, Bandung, Semarang, Malang Raya | Silent 10–500 kVA, Open 500–2.000 kVA | Truk Crane & Fuso Dedicated | 1 – 2 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Sumatera** | Medan, Pekanbaru, Palembang, Lampung | Unit Silent Trailer & Open Heavy | Truk Ekspedisi Lintas Sumatera | 3 – 5 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Kalimantan** | Balikpapan, Samarinda, Banjarmasin | Unit Silent Tambang & Pabrik | Kargo Kontainer Laut Surabaya | 5 – 8 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Sulawesi** | Makassar, Manado, Kendari, Palu | Unit Silent & Open Power Plant | Kapal Kontainer Cepat Pelni | 6 – 9 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Bali & Nusra** | Denpasar, Badung, Gianyar, Mataram Lombok | Unit Ultra-Silent Soundproof | Truk Penyeberangan Ferry | 2 – 4 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Maluku & Papua** | Jayapura, Timika, Sorong, Ambon | Modul Genset Tambang & Remote Site | Tol Laut Logistik Nasional | 8 – 14 Hari Kerja | Siap Kirim & Eksekusi |
+| Wilayah | Cakupan Kawasan | Kesiapan Unit |
+|---|---|---|
+| **Jawa** | Surabaya, Jabodetabek, Bandung, Semarang | Silent 10–500 kVA |
+| **Sumatera** | Medan, Pekanbaru, Palembang, Lampung | Silent Trailer & Open Heavy |
+| **Kalimantan** | Balikpapan, Samarinda, Banjarmasin | Silent Tambang & Pabrik |
+| **Sulawesi** | Makassar, Manado, Kendari, Palu | Open Type & Silent Plant |
+| **Bali & Nusra** | Denpasar, Badung, Mataram Lombok | Ultra-Silent Soundproof |
+| **Maluku & Papua** | Jayapura, Timika, Sorong, Ambon | Heavy Duty Mining Spec |
 
 ---
 
@@ -73,36 +73,3 @@ Bisa, asalkan mesin genset Anda sudah memiliki sistem starter elektrik 12V atau 
 Rata-rata 5 sampai 10 detik sejak PLN padam hingga genset siap memikul beban penuh.
 
 ---
-
-## Solusi Rekayasa Pembangkit Daya Bersama GENSETORA
-
-Konsultasikan kapasitas kVA, kebutuhan panel ATS-AMF, dan pengadaan genset fasilitas Anda bersama tim ahli Gensetora:
-
-- **Hitung Perkiraan Daya & Kapasitas**: [Kalkulator Daya Genset](/kalkulator-genset)
-- **Lihat Katalog Unit**: [Katalog Lengkap Gensetora](/genset)
-- **Konsultasi WhatsApp**: [Hubungi Tim Estimator Ahli (0851-8300-5070)](https://wa.me/6285183005070?text=Halo%20Gensetora%2C%20saya%20ingin%20konsultasi%20kebutuhan%20genset%20untuk%20Fungsi%20Panel%20ATS-AMF%20Otomatis%3A%20Solusi%20Perpindahan%20Listrik%20PLN%20ke%20Genset%20dalam%205%20Detik)
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-  {
-    "@type": "Question",
-    "name": "Apakah panel ATS-AMF bisa dipasang pada genset lama yang sudah ada?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Bisa, asalkan mesin genset Anda sudah memiliki sistem starter elektrik 12V atau 24V dan dinamo pengisian aki yang sehat."
-    }
-  },
-  {
-    "@type": "Question",
-    "name": "Berapa lama waktu jeda perpindahan listrik dengan panel ATS?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Rata-rata 5 sampai 10 detik sejak PLN padam hingga genset siap memikul beban penuh."
-    }
-  }
-]
-}
-```

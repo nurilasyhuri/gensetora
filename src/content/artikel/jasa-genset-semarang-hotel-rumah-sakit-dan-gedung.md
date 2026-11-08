@@ -53,14 +53,14 @@ Karakteristik fasilitas komersial dan industri di kawasan Semarang menuntut unit
 
 GENSETORA melayani penjualan, rental, servis, dan kontrak maintenance genset ke seluruh koridor Indonesia:
 
-| Wilayah / Koridor | Cakupan Kawasan Proyek | Kesiapan Unit di Lapangan | Moda Mobilisasi Alat | Estimasi Lead Time | Status Layanan |
-|---|---|---|---|---|:---:|
-| **Koridor Jawa** | Surabaya, Jabodetabek, Bandung, Semarang, Malang Raya | Silent 10–500 kVA, Open 500–2.000 kVA | Truk Crane & Fuso Dedicated | 1 – 2 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Sumatera** | Medan, Pekanbaru, Palembang, Lampung | Unit Silent Trailer & Open Heavy | Truk Ekspedisi Lintas Sumatera | 3 – 5 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Kalimantan** | Balikpapan, Samarinda, Banjarmasin | Unit Silent Tambang & Pabrik | Kargo Kontainer Laut Surabaya | 5 – 8 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Sulawesi** | Makassar, Manado, Kendari, Palu | Unit Silent & Open Power Plant | Kapal Kontainer Cepat Pelni | 6 – 9 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Bali & Nusra** | Denpasar, Badung, Gianyar, Mataram Lombok | Unit Ultra-Silent Soundproof | Truk Penyeberangan Ferry | 2 – 4 Hari Kerja | Siap Kirim & Eksekusi |
-| **Koridor Maluku & Papua** | Jayapura, Timika, Sorong, Ambon | Modul Genset Tambang & Remote Site | Tol Laut Logistik Nasional | 8 – 14 Hari Kerja | Siap Kirim & Eksekusi |
+| Wilayah | Cakupan Kawasan | Kesiapan Unit |
+|---|---|---|
+| **Jawa** | Surabaya, Jabodetabek, Bandung, Semarang | Silent 10–500 kVA |
+| **Sumatera** | Medan, Pekanbaru, Palembang, Lampung | Silent Trailer & Open Heavy |
+| **Kalimantan** | Balikpapan, Samarinda, Banjarmasin | Silent Tambang & Pabrik |
+| **Sulawesi** | Makassar, Manado, Kendari, Palu | Open Type & Silent Plant |
+| **Bali & Nusra** | Denpasar, Badung, Mataram Lombok | Ultra-Silent Soundproof |
+| **Maluku & Papua** | Jayapura, Timika, Sorong, Ambon | Heavy Duty Mining Spec |
 
 ---
 
@@ -73,36 +73,3 @@ Armada kami dapat dimobilisasi dalam waktu 2 – 3 Jam untuk respon darurat di w
 Ya, kami melayani kontrak maintenance berkala 250 jam dan servis overhaul genset berbagai merk di seluruh wilayah Semarang.
 
 ---
-
-## Solusi Rekayasa Pembangkit Daya Bersama GENSETORA
-
-Konsultasikan kebutuhan daya listrik genset untuk fasilitas Anda di Semarang bersama tim teknik ahli GENSETORA:
-
-- **Hitung Perkiraan Daya & Kapasitas**: [Kalkulator Daya Genset](/kalkulator-genset)
-- **Lihat Katalog Unit**: [Katalog Lengkap Gensetora](/genset)
-- **Konsultasi WhatsApp**: [Hubungi Tim Estimator Ahli (0851-8300-5070)](https://wa.me/6285183005070?text=Halo%20Gensetora%2C%20saya%20ingin%20konsultasi%20kebutuhan%20genset%20untuk%20Jasa%20Genset%20Semarang%3A%20Solusi%20Hotel%2C%20Rumah%20Sakit%20%26%20Gedung%20Kapasitas%2050%20%E2%80%93%201.000%20kVA)
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-  {
-    "@type": "Question",
-    "name": "Berapa lama waktu pengiriman genset ke lokasi di Semarang?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Armada kami dapat dimobilisasi dalam waktu 2 – 3 Jam untuk respon darurat di wilayah perkotaan Semarang."
-    }
-  },
-  {
-    "@type": "Question",
-    "name": "Apakah melayani kontrak servis rutin genset di Semarang?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Ya, kami melayani kontrak maintenance berkala 250 jam dan servis overhaul genset berbagai merk di seluruh wilayah Semarang."
-    }
-  }
-]
-}
-```

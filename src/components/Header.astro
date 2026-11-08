@@ -1,21 +1,21 @@
 ---
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-[#101C2B]/95 backdrop-blur-[8px] border-b border-slate-800/80 text-white">
+<header class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-[#0A4347]/95 backdrop-blur-[8px] border-b border-[#135D62]/80 text-white">
   <!-- Main Navigation Bar -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
       
       <!-- Logo Perusahaan (Gensetora Circle Badge Style) -->
       <a href="/" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700/80 flex items-center justify-center text-white font-heading font-black text-xs tracking-wider shadow-xs group-hover:border-[#F5B82E] transition-colors">
+        <div class="w-10 h-10 rounded-full bg-[#063336] border border-[#009498] flex items-center justify-center text-white font-heading font-black text-xs tracking-wider shadow-xs group-hover:border-[#F5B82E] transition-colors">
           <span class="text-[#F5B82E] font-black">GT</span>
         </div>
         <div class="flex flex-col">
           <span class="font-heading font-black text-base sm:text-lg tracking-wider uppercase text-white group-hover:text-[#F5B82E] transition-colors block leading-tight">
             GENSETORA
           </span>
-          <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold leading-none hidden sm:block">
+          <span class="text-xs uppercase tracking-widest text-slate-200 font-semibold leading-none hidden sm:block">
             POWER SOLUTIONS
           </span>
         </div>
@@ -23,22 +23,22 @@
 
       <!-- Clean Text Navigation Links -->
       <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-semibold uppercase tracking-wider text-slate-200">
-        <a href="/produk/" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+        <a href="/produk/" style="min-height: 40px; display: inline-flex; align-items: center;" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
           Produk
         </a>
-        <a href="/#katalog" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+        <a href="/#katalog" style="min-height: 40px; display: inline-flex; align-items: center;" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
           Kategori
         </a>
-        <a href="/#sewa" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+        <a href="/#sewa" style="min-height: 40px; display: inline-flex; align-items: center;" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
           Sewa
         </a>
-        <a href="/#layanan" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+        <a href="/#layanan" style="min-height: 40px; display: inline-flex; align-items: center;" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
           Layanan
         </a>
-        <a href="/artikel/" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+        <a href="/artikel/" style="min-height: 40px; display: inline-flex; align-items: center;" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
           Artikel
         </a>
-        <a href="/#kontak" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
+        <a href="/#kontak" style="min-height: 40px; display: inline-flex; align-items: center;" class="hover:text-[#F5B82E] transition-colors py-2 whitespace-nowrap">
           Kontak
         </a>
       </nav>
@@ -47,7 +47,8 @@
       <div class="flex items-center gap-3">
         <a
           href="/#kontak"
-          class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg border border-[#F5B82E] text-[#F5B82E] hover:bg-[#F5B82E] hover:text-[#101C2B] text-xs font-bold tracking-wide transition-all shadow-xs"
+          style="min-height: 40px; display: inline-flex; align-items: center; justify-content: center;"
+          class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg border border-[#F5B82E] text-[#F5B82E] hover:bg-[#F5B82E] hover:text-[#0A4347] text-xs font-bold tracking-wide transition-colors duration-200 shadow-xs"
         >
           Minta Penawaran
         </a>
@@ -56,6 +57,7 @@
         <button
           type="button"
           id="mobile-nav-toggle"
+          style="min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center;"
           class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none"
           aria-label="Buka Menu"
         >
@@ -69,35 +71,51 @@
   </div>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[#0B131E] border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
-    <a href="/produk/" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+  <div id="mobile-menu" class="hidden md:hidden bg-[#063336] border-b border-[#135D62] px-4 pt-2 pb-6 space-y-1">
+    <a href="/produk/" style="min-height: 44px; display: flex; align-items: center;" class="mobile-nav-link text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
       Katalog Produk Genset (PRIMTECH &amp; V-GEN)
     </a>
-    <a href="/#katalog" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+    <a href="/#katalog" style="min-height: 44px; display: flex; align-items: center;" class="mobile-nav-link text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
       Kategori Genset
     </a>
-    <a href="/#sewa" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+    <a href="/#sewa" style="min-height: 44px; display: flex; align-items: center;" class="mobile-nav-link text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
       Rental & Sewa
     </a>
-    <a href="/#layanan" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+    <a href="/#layanan" style="min-height: 44px; display: flex; align-items: center;" class="mobile-nav-link text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
       Layanan & Servis
     </a>
-    <a href="/artikel/" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+    <a href="/artikel/" style="min-height: 44px; display: flex; align-items: center;" class="mobile-nav-link text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
       Artikel & Panduan
     </a>
-    <a href="/#kontak" class="mobile-nav-link block text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
+    <a href="/#kontak" style="min-height: 44px; display: flex; align-items: center;" class="mobile-nav-link text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-[#F5B82E] py-2">
       Hubungi Kontak
     </a>
     <div class="pt-2">
       <a
         href="/#kontak"
-        class="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-[#F5B82E] text-[#101C2B] font-bold text-xs tracking-wider uppercase"
+        style="min-height: 44px; display: inline-flex; align-items: center; justify-content: center;"
+        class="w-full px-4 py-2.5 rounded-lg bg-[#F5B82E] text-[#0A4347] font-bold text-xs tracking-wider uppercase transition-colors"
       >
         Minta Penawaran Resmi
       </a>
     </div>
   </div>
 </header>
+
+<style is:global>
+  header nav a {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 40px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  .mobile-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 44px !important;
+  }
+</style>
 
 <script>
   const toggleBtn = document.getElementById('mobile-nav-toggle');

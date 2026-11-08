@@ -5,13 +5,17 @@ export default {
     extend: {
       colors: {
         genset: {
-          navy: '#101C2B',
-          'navy-dark': '#0B131E',
-          'navy-surface': '#162538',
+          tosca: '#009498',
+          'tosca-hover': '#007D81',
+          'tosca-dark': '#063336',
+          'tosca-surface': '#0A4347',
+          navy: '#0A4347',
+          'navy-dark': '#063336',
+          'navy-surface': '#0A4347',
           yellow: '#F5B82E',
           'yellow-hover': '#E5A71D',
           white: '#FFFFFF',
-          mist: '#F3F6FA',
+          mist: '#EFF8F8',
           slate: '#64748B',
           dark: '#0F172A',
           border: '#E2E8F0',
